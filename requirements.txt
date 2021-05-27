@@ -1,0 +1,4 @@
+testing-library
+axios
+react
+web-vitals

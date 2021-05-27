@@ -1,0 +1,61 @@
+.titleStyle2 {
+    margin-top: 0%;
+    font-size: 250%;
+    color: #FDFDFD;
+    text-shadow: 2px 2px 2px #222;
+    text-align: center;
+    padding: 2%;
+    margin-bottom: 2%;
+}
+
+.titleDivStyle2 {
+    background-color: #F9CC88;
+    width: 17%; 
+    margin-left: auto; 
+    margin-right: auto;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    padding-bottom: 0.4%;
+}
+
+.filterTextStyle {
+    color: #696969;
+    font-family: 'Arial Narrow Bold';
+    font-weight: bold;
+    font-size: 100%;
+    text-align: center;
+}
+
+.serviceTextStyle {
+    color: #696969;
+    font-family: 'Arial Narrow Bold';
+    font-weight: bold;
+    font-size: 200%;
+    text-align: center;
+}
+
+.graphStyle {
+    width: 20%;
+    height: 40%;
+    margin-top: 5%;  
+    text-align: center;
+    margin-bottom: 5%;  
+    display:inline;
+    margin-bottom: 10%;
+
+}
+
+.graphDivStyleBar {
+    width: 60%;
+    height: 200%;
+    text-align: center;
+
+}
+
+.graphDivStyleDoughnut {
+    width: 30%;
+    height: 100%;
+    text-align: center;
+    margin-right: 10%;
+
+}
