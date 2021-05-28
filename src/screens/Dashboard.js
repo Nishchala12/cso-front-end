@@ -306,6 +306,7 @@ class Dashboard extends Component {
             var data = JSON.parse(response.data.replace(/'/ig, '"'));
             console.log(response);
             console.log(data);
+            console.log(frontendData); //remove later
 
             if(response.status === "success") {
                 this.setState({calculateState: 2, response: data})
