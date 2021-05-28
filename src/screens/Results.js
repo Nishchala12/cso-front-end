@@ -13,6 +13,8 @@ class Results extends Component {
         Object.entries(filterData).forEach(item => {
             var instanceType = item[0];
             var instanceValue = item[1];
+            console.log("instanceType", instanceType);
+            console.log("instanceValue", instanceType);
 
             graphLabels.push(instanceType);
             graphData.push(instanceValue);
@@ -79,11 +81,11 @@ class Results extends Component {
         return data;
     }
 
-    createBarChart(filterName, bar) {
+    createBarChart(filterName, bar, filterText, displayName) {
         return(
             <div>
                 <div className = 'graphStyle'>
-                    <p className = 'filterTextStyle'>{ filterName }</p>
+                    <p className = 'filterTextStyle'>{ displayName }</p>
                     <Bar
                         data={ bar }
                         options={{
@@ -99,16 +101,16 @@ class Results extends Component {
                         }}
                     />
                 </div>
-                    <p style = {{textAlign: 'center'}}>DisplayText</p>
+                    <p style = {{textAlign: 'center'}}>{ filterText }</p>
             </div>
         );
     }
 
-    createDoughnutChart(filterName, dough) {
+    createDoughnutChart(filterName, dough, filterText, displayName) {
         return(
             <div>
                 <div className = 'graphStyle'>
-                    <p className = 'filterTextStyle'>{ filterName }</p>
+                    <p className = 'filterTextStyle'>{ displayName }</p>
                     <Doughnut
                         data = { dough }
                         options = {{
@@ -124,7 +126,7 @@ class Results extends Component {
                         }}
                     />
                 </div>
-                <p style = {{textAlign: 'center'}}>DisplayText</p>
+                <p style = {{textAlign: 'center'}}>{ filterText }</p>
             </div>
         );
     }
@@ -134,8 +136,14 @@ class Results extends Component {
         Object.entries(data).forEach(item => {
             var filterName = item[0];
             var filterData = item[1];
-            var dough = this.createBar(filterName, filterData);
-            var doughnut = this.createBarChart(filterName, dough);
+            var displayName = item[2];
+            var filterText = item[3];
+             console.log("Fname",filterName);
+             console.log("Fdata",filterData);
+             console.log("Display",displayName);
+            // console.log("Ftext",filterText);
+            var bar = this.createBar(filterName, filterData);
+            var doughnut = this.createBarChart(filterName, bar, filterText, displayName);
             components.push(doughnut);
         })
         return components;
@@ -146,8 +154,10 @@ class Results extends Component {
         Object.entries(data).forEach(item => {
             var filterName = item[0];
             var filterData = item[1];
+            var displayName = item[2];
+            var filterText = item[3];
             var dough = this.createDough(filterName, filterData);
-            var doughnut = this.createDoughnutChart(filterName, dough);
+            var doughnut = this.createDoughnutChart(filterName, dough, filterText, displayName);
             components.push(doughnut);
         })
         return components;

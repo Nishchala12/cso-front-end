@@ -301,15 +301,16 @@ class Dashboard extends Component {
         axios.get(url)
         .then(jsonData => { 
             console.log(jsonData);
-            jsonData = "{\"data\": \"{'stdDev': {'t2.micro': 0.373, 't2.small': 0.345, 't2.nano': 0.281}, 'Throughput': {'t2.small': 0.405, 't2.micro': 0.336, 't2.nano': 0.26}, 'errorRate': {'t2.nano': 0.374, 't2.micro': 0.328, 't2.small': 0.299}, 'overAll': {'t2.small': 0.349, 't2.micro': 0.345, 't2.nano': 0.305}}\",\"processingNumber\": \"pX5cY8XeDQ\",\"status\": \"success\"}"
+            //jsonData = "{\"data\": \"{'stdDev': {'t2.micro': 0.373, 't2.small': 0.345, 't2.nano': 0.281}, 'Throughput': {'t2.small': 0.405, 't2.micro': 0.336, 't2.nano': 0.26}, 'errorRate': {'t2.nano': 0.374, 't2.micro': 0.328, 't2.small': 0.299}, 'overAll': {'t2.small': 0.349, 't2.micro': 0.345, 't2.nano': 0.305}}\",\"processingNumber\": \"pX5cY8XeDQ\",\"status\": \"success\"}"
+            jsonData = "{\"payload\": \"{'overall': {'filterText': 'With respect to Overall, these are the observations: Instance Type t2.nano is 0.3% better than Instance Type t2.small. Instance Type t2.nano is 2.75% better than Instance Type t2.micro. Instance Type t2.small is 2.45% better than Instance Type t2.micro. ', 'data': {'t2.nano': 0.336, 't2.small': 0.335, 't2.micro': 0.327}, 'displayName': 'Overall'}, 'stdDev': {'filterText': 'With respect to Consistency, these are the observations: Instance Type t2.micro is 4.26% better than Instance Type t2.nano. Instance Type t2.micro is 4.89% better than Instance Type t2.small. Instance Type t2.nano is 0.61% better than Instance Type t2.small. ', 'data': {'t2.micro': 0.343, 't2.nano': 0.329, 't2.small': 0.327}, 'displayName': 'Consistency'}, 'Throughput': {'filterText': 'With respect to Throughput, these are the observations: Instance Type t2.nano is 1.7% better than Instance Type t2.small. Instance Type t2.nano is 24.65% better than Instance Type t2.micro. Instance Type t2.small is 22.57% better than Instance Type t2.micro. ', 'data': {'t2.nano': 0.359, 't2.small': 0.353, 't2.micro': 0.288}, 'displayName': 'Throughput'}, 'errorRate': {'filterText': 'With respect to Error Rate, these are the observations: Instance Type t2.micro is 7.34% better than Instance Type t2.small. Instance Type t2.micro is 9.35% better than Instance Type t2.nano. Instance Type t2.small is 1.87% better than Instance Type t2.nano. ', 'data': {'t2.micro': 0.351, 't2.small': 0.327, 't2.nano': 0.321}, 'displayName': 'Error Rate'}}\",\"processingNumber\": \"pNbMIrre54\",\"status\": \"success\"}";
             var response = JSON.parse(jsonData);
-            var data = JSON.parse(response.data.replace(/'/ig, '"'));
-            console.log(response);
-            console.log(data);
-            console.log(frontendData); //remove later
+            var payload = JSON.parse(response.payload.replace(/'/ig, '"'));
+           // console.log(response);
+           // console.log(payload);
+           // console.log(frontendData); //remove later
 
             if(response.status === "success") {
-                this.setState({calculateState: 2, response: data})
+                this.setState({calculateState: 2, response: payload})
             }
             else {
                 this.setState({calculateState: 3})
