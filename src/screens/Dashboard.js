@@ -514,7 +514,7 @@ class Dashboard extends Component {
             }
         })
         .catch(error => { 
-            console.log(error);
+            console.log(error.response);
             this.setState({calculateState: 3})
         })
     }
