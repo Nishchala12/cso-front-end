@@ -1,40 +1,11 @@
 import { Component } from 'react';
-import '../styles/Results.css'
+import {Link} from 'react-router-dom'
 import { Doughnut, Bar } from 'react-chartjs-2';
+import '../styles/Results.css'
 
 class Results extends Component {
 
-    createBar(filterName, filterData) {
-        const bgColor = "#00008b";
-        const hvColor = "#00003d";
-        var graphLabels = [];
-        var graphData = [];
-
-        Object.entries(filterData).forEach(item => {
-            var instanceType = item[0];
-            var instanceValue = item[1];
-            console.log("instanceType", instanceType);
-            console.log("instanceValue", instanceType);
-
-            graphLabels.push(instanceType);
-            graphData.push(instanceValue);
-        })
-
-        const data = {
-            labels: graphLabels,
-            datasets: [
-              {
-                label: filterName,
-                backgroundColor: bgColor,
-                hoverBackgroundColor: hvColor,
-                data: graphData
-              }
-            ]
-        }
-        return data;
-    }
-
-    createDough(filterName, filterData) {
+    createData(filterName, filterData) {
         const bgColorMap = {
             "t2.nano": "#B21F00",
             "t2.micro": "#C9DE00",
@@ -51,6 +22,7 @@ class Results extends Component {
             "t2.large": "#35014F",
             "t2.xlarge": "#991900"
         };
+
 
         var graphLabels = [];
         var graphData = [];
@@ -71,52 +43,30 @@ class Results extends Component {
             labels: graphLabels,
             datasets: [
               {
-                label: filterName,
+                label: "",
                 backgroundColor: bgColor,
                 hoverBackgroundColor: hvColor,
                 data: graphData
               }
             ]
         }
+        
         return data;
     }
 
-    createBarChart(filterName, bar, filterText, displayName) {
+    createCharts(data, filterText, displayName) {
+        // Bar.defaults.legend.display = false;
         return(
             <div>
-                <div className = 'graphStyle'>
-                    <p className = 'filterTextStyle'>{ displayName }</p>
-                    <Bar
-                        data={ bar }
-                        options={{
-                            title:{
-                                display:true,
-                                text:filterName,
-                                fontSize:20
-                            },
-                            legend:{
-                                display:true,
-                                position:'right'
-                            }   
-                        }}
-                    />
-                </div>
-                    <p style = {{textAlign: 'center'}}>{ filterText }</p>
-            </div>
-        );
-    }
-
-    createDoughnutChart(filterName, dough, filterText, displayName) {
-        return(
-            <div>
-                <div className = 'graphStyle'>
-                    <p className = 'filterTextStyle'>{ displayName }</p>
+                <div className = 'doughnutGraphStyle'>
+                    <p className = 'filterStyle'>{ displayName }</p>
+                    <p className = 'filterRelativeStyle'>Relative Importance of Instance Types</p>
                     <Doughnut
-                        data = { dough }
+                        data = { data }
                         options = {{
                         title: {
                             display: true,
-                            text: filterName,
+                            text: displayName,
                             fontSize: 20
                         },
                         legend: {
@@ -126,62 +76,95 @@ class Results extends Component {
                         }}
                     />
                 </div>
-                <p style = {{textAlign: 'center'}}>{ filterText }</p>
+                <div className = 'barGraphStyle'>
+                    <Bar
+                        data={ data }
+                        options={{
+                            title:{
+                                display: false,
+                                text: displayName,
+                                fontSize: 20
+                            },
+                            legend: {
+                                display: false
+                            },
+                            tooltips: {
+                                enabled: false
+                            }
+                        }}
+                    />
+                </div>
+                <p className = 'filterTextStyle'>{ filterText }</p> 
+                <hr className = 'hrStyle'/>
             </div>
         );
     }
 
-    renderBarGraph(data) {
+    renderGraphs(data) {
         var components = [];
         Object.entries(data).forEach(item => {
-            var filterName = item[0];
-            var filterData = item[1];
-            var displayName = item[2];
-            var filterText = item[3];
-             console.log("Fname",filterName);
-             console.log("Fdata",filterData);
-             console.log("Display",displayName);
-            // console.log("Ftext",filterText);
-            var bar = this.createBar(filterName, filterData);
-            var doughnut = this.createBarChart(filterName, bar, filterText, displayName);
-            components.push(doughnut);
+            if(item[0] !== "overall") {
+                var collectiveData = item[1];
+                var filterData = collectiveData.data;
+                var filterText = collectiveData.filterText;
+                var displayName = collectiveData.displayName;
+
+                var graphData = this.createData(displayName, filterData);
+                var graphs = this.createCharts(graphData, filterText, displayName);
+                components.push(graphs);
+            }
         })
+    
         return components;
     }
 
-    renderDoughnutGraph(data) {
-        var components = [];
-        Object.entries(data).forEach(item => {
-            var filterName = item[0];
-            var filterData = item[1];
-            var displayName = item[2];
-            var filterText = item[3];
-            var dough = this.createDough(filterName, filterData);
-            var doughnut = this.createDoughnutChart(filterName, dough, filterText, displayName);
-            components.push(doughnut);
-        })
-        return components;
+    renderOverall(data) {
+        var collectiveData = data.overall;
+        var filterData = collectiveData.data;
+        var filterText = collectiveData.filterText;
+        var displayName = collectiveData.displayName;
+
+        var graphData = this.createData(displayName, filterData);
+        var graph = this.createCharts(graphData, filterText, displayName);
+
+        return graph;
+    }
+
+    renderS3Data(data) {
+        return (
+            <p className = 'filterTextStyle'>{ data }</p>
+        );
     }
         
     render() {
-        var data = this.props.location.state.data;
         var service = this.props.location.state.service;
-    
+        var data = this.props.location.state.data;
+
+        if(service === "Amazon S3") {
+            return(
+                <div>
+                    <div className = 'titleDivStyle2'>
+                        <h1 className = 'titleStyle2'>Results</h1>
+                    </div>
+                    <Link className = 'linkReturnStyle' to = "/dashboard">Return to Dashboard</Link>
+                    <div className = 'graphDivStyleCharts'>
+                        { this.renderS3Data(data) }
+                    </div> 
+                </div>
+            );
+        }
+
         return(
-            
             <div>
-            <div className = 'titleDivStyle2'>
-                <h1 className = 'titleStyle2'>Results</h1>
-            </div>
-            <p className = 'serviceTextStyle'>{ service }</p>
-            <div style = {{display: 'flex'}}>
-                <div className = 'graphDivStyleDoughnut'>
-                    { this.renderDoughnutGraph(data) }
+                <div className = 'titleDivStyle2'>
+                    <h1 className = 'titleStyle2'>Results</h1>
                 </div>
-                <div className = 'graphDivStyleBar'>
-                    { this.renderBarGraph(data) }
+                <Link className = 'linkReturnStyle' to = "/dashboard">Return to Dashboard</Link>
+                <p className = 'serviceTextStyle'>{ service }</p>
+                <div className = 'graphDivStyleCharts'>
+                    { this.renderOverall(data) }
+                    { this.renderGraphs(data) }
                 </div>
-            </div>
             </div>
         )
     };

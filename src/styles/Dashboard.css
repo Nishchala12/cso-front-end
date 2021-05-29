@@ -65,7 +65,6 @@
     border-radius: 40px;
     text-align: center;
     padding-top: 3%;
-    padding-bottom: 3%;
 }
 
 .s3StyleTrue {
@@ -164,14 +163,14 @@
     margin-top: 3%;
 }
 
-.perfStyleTrue {
+.consistencyStyleTrue {
     background-color: #FFA500;
     color: #FDFDFD;
     padding-top: 10px;
     padding-bottom: 10px;
     border-width: 0px;
     border-radius: 20px;
-    width: 15%;
+    width: 17%;
     margin: 1%;
     font-family: 'Arial Narrow Bold' ;
     font-weight: bold;
@@ -181,14 +180,14 @@
    
 }
 
-.perfStyleFalse {
+.consistencyStyleFalse {
     background-color: #F9CC88;
     color: #FDFDFD;
     padding-top: 10px;
     padding-bottom: 10px;
     border-width: 0px;
     border-radius: 20px;
-    width: 15%;
+    width: 17%;
     margin: 1%;
     font-family: 'Arial Narrow Bold' ;
     font-weight: bold;
@@ -198,14 +197,14 @@
 
 }
 
-.secStyleTrue {
+.errorStyleTrue {
     background-color: #FFA500;
     color: #FDFDFD;
     padding-top: 10px;
     padding-bottom: 10px;
     border-width: 0px;
     border-radius: 20px;
-    width: 15%;
+    width: 17%;
     margin: 1%;
     font-family: 'Arial Narrow Bold' ;
     font-weight: bold;
@@ -214,14 +213,14 @@
     margin-top: 2%;
 }
 
-.secStyleFalse {
+.errorStyleFalse {
     background-color: #F9CC88;
     color: #FDFDFD;
     padding-top: 10px;
     padding-bottom: 10px;
     border-width: 0px;
     border-radius: 20px;
-    width: 15%;
+    width: 17%;
     margin: 1%;
     font-family: 'Arial Narrow Bold' ;
     font-weight: bold;
@@ -230,14 +229,14 @@
     margin-top: 2%;
 }
 
-.availStyleTrue {
+.latencyStyleTrue {
     background-color: #FFA500;
     color: #FDFDFD;
     padding-top: 10px;
     padding-bottom: 10px;
     border-width: 0px;
     border-radius: 20px;
-    width: 15%;
+    width: 17%;
     margin: 1%;
     font-family: 'Arial Narrow Bold' ;
     font-weight: bold;
@@ -246,14 +245,14 @@
     margin-top: 2%;
 }
 
-.availStyleFalse {
+.latencyStyleFalse {
     background-color: #F9CC88;
     color: #FDFDFD;
     padding-top: 10px;
     padding-bottom: 10px;
     border-width: 0px;
     border-radius: 20px;
-    width: 15%;
+    width: 17%;
     margin: 1%;
     font-family: 'Arial Narrow Bold' ;
     font-weight: bold;
@@ -262,14 +261,14 @@
     margin-top: 2%;
 }
 
-.interStyleTrue {
+.elapsedStyleTrue {
     background-color: #FFA500;
     color: #FDFDFD;
     padding-top: 10px;
     padding-bottom: 10px;
     border-width: 0px;
     border-radius: 20px;
-    width: 15%;
+    width: 17%;
     margin: 1%;
     font-family: 'Arial Narrow Bold' ;
     font-weight: bold;
@@ -278,14 +277,14 @@
     margin-top: 2%;
 }
 
-.interStyleFalse {
+.elapsedStyleFalse {
     background-color: #F9CC88;
     color: #FDFDFD;
     padding-top: 10px;
     padding-bottom: 10px;
     border-width: 0px;
     border-radius: 20px;
-    width: 15%;
+    width: 17%;
     margin: 1%;
     font-family: 'Arial Narrow Bold' ;
     font-weight: bold;
@@ -294,14 +293,14 @@
     margin-top: 2%;
 }
 
-.encStyleTrue {
+.connectionStyleTrue {
     background-color: #FFA500;
     color: #FDFDFD;
     padding-top: 10px;
     padding-bottom: 10px;
     border-width: 0px;
     border-radius: 20px;
-    width: 15%;
+    width: 17%;
     margin: 1%;
     font-family: 'Arial Narrow Bold' ;
     font-weight: bold;
@@ -310,20 +309,117 @@
     margin-top: 5%;
 }
 
-.encStyleFalse {
+.connectionStyleFalse {
     background-color: #F9CC88;
     color: #FDFDFD;
     padding-top: 10px;
     padding-bottom: 10px;
     border-width: 0px;
     border-radius: 20px;
-    width: 15%;
+    width: 17%;
     margin: 1%;
     font-family: 'Arial Narrow Bold' ;
     font-weight: bold;
     font-size: 100%;
     color: #FDFDFD;
     margin-top: 5%;
+}
+
+
+.throughputStyleTrue {
+    background-color: #FFA500;
+    color: #FDFDFD;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-width: 0px;
+    border-radius: 20px;
+    width: 17%;
+    margin: 1%;
+    font-family: 'Arial Narrow Bold' ;
+    font-weight: bold;
+    font-size: 100%;
+    color: #FDFDFD;
+    margin-top: 5%;
+}
+
+.throughputStyleFalse {
+    background-color: #F9CC88;
+    color: #FDFDFD;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-width: 0px;
+    border-radius: 20px;
+    width: 17%;
+    margin: 1%;
+    font-family: 'Arial Narrow Bold' ;
+    font-weight: bold;
+    font-size: 100%;
+    color: #FDFDFD;
+    margin-top: 5%;
+}
+
+.cpuStyleTrue {
+    background-color: #FFA500;
+    color: #FDFDFD;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-width: 0px;
+    border-radius: 20px;
+    width: 17%;
+    margin: 1%;
+    font-family: 'Arial Narrow Bold' ;
+    font-weight: bold;
+    font-size: 100%;
+    color: #FDFDFD;
+    margin-top: 2%;
+}
+
+.cpuStyleFalse {
+    background-color: #F9CC88;
+    color: #FDFDFD;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-width: 0px;
+    border-radius: 20px;
+    width: 17%;
+    margin: 1%;
+    font-family: 'Arial Narrow Bold' ;
+    font-weight: bold;
+    font-size: 100%;
+    color: #FDFDFD;
+    margin-top: 2%;
+}
+
+.memoryStyleTrue {
+    background-color: #FFA500;
+    color: #FDFDFD;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-width: 0px;
+    border-radius: 20px;
+    width: 17%;
+    margin: 1%;
+    font-family: 'Arial Narrow Bold' ;
+    font-weight: bold;
+    font-size: 100%;
+    color: #FDFDFD;
+    margin-top: 2%;
+}
+
+.memoryStyleFalse {
+    background-color: #F9CC88;
+    color: #FDFDFD;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-width: 0px;
+    border-radius: 20px;
+    width: 17%;
+    margin: 1%;
+    font-family: 'Arial Narrow Bold' ;
+    font-weight: bold;
+    font-size: 100%;
+    color: #FDFDFD;
+    margin-top: 2%;
 }
 
 .t2NanoStyleTrue {
@@ -339,6 +435,7 @@
     font-weight: bold;
     font-size: 100%;
     color: #FDFDFD;
+    margin-bottom: 5%;
 }
 
 .t2NanoStyleFalse {
@@ -354,6 +451,7 @@
     font-weight: bold;
     font-size: 100%;
     color: #FDFDFD;
+    margin-bottom: 5%;
 }
 
 .t2MicroStyleTrue {
@@ -369,6 +467,7 @@
     font-weight: bold;
     font-size: 100%;
     color: #FDFDFD;
+    margin-bottom: 5%;
 }
 
 .t2MicroStyleFalse {
@@ -384,6 +483,7 @@
     font-weight: bold;
     font-size: 100%;
     color: #FDFDFD;
+    margin-bottom: 5%;
 }
 
 .t2SmallStyleTrue {
@@ -399,6 +499,7 @@
     font-weight: bold;
     font-size: 100%;
     color: #FDFDFD;
+    margin-bottom: 5%;
 }
 
 .t2SmallStyleFalse {
@@ -414,6 +515,7 @@
     font-weight: bold;
     font-size: 100%;
     color: #FDFDFD;
+    margin-bottom: 5%;
 }
 
 .t2MediumStyleTrue {
@@ -429,6 +531,7 @@
     font-weight: bold;
     font-size: 100%;
     color: #FDFDFD;
+    margin-bottom: 5%;
 }
 
 .t2MediumStyleFalse {
@@ -444,6 +547,7 @@
     font-weight: bold;
     font-size: 100%;
     color: #FDFDFD;
+    margin-bottom: 5%;
 }
 
 .t2LargeStyleTrue {
@@ -459,6 +563,7 @@
     font-weight: bold;
     font-size: 100%;
     color: #FDFDFD;
+    margin-bottom: 5%;
 }
 
 .t2LargeStyleFalse {
@@ -505,8 +610,6 @@
     font-size: 100%;
     color: #FDFDFD;
 }
-
-
 
 .calculateDivStyle {
     text-align: center;
@@ -559,6 +662,7 @@
     font-size: 100%;
     text-align: center;
     margin-top: 3%;
+    padding: 2%;
 }
 
 .priorityTextStyle {

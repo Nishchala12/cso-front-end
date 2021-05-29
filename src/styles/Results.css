@@ -18,12 +18,32 @@
     padding-bottom: 0.4%;
 }
 
+.filterStyle {
+    color: #696969;
+    font-family: 'Arial Narrow Bold';
+    font-weight: bold;
+    font-size: 150%;
+    text-align: center;
+}
+
+.filterRelativeStyle {
+    color: #696969;
+    font-family: 'Arial Narrow Bold';
+    font-weight: bold;
+    font-size: 120%;
+    text-align: center;
+}
+
 .filterTextStyle {
     color: #696969;
     font-family: 'Arial Narrow Bold';
     font-weight: bold;
     font-size: 100%;
-    text-align: center;
+    text-align: justify;
+    margin-left: 7%;
+    margin-right: 7%;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
 
 .serviceTextStyle {
@@ -34,28 +54,47 @@
     text-align: center;
 }
 
-.graphStyle {
-    width: 20%;
+.doughnutGraphStyle {
+    width: 30%;
+    height: 40%;
+    margin-top: 3%;  
+    text-align: center;
+    margin-bottom: 3%;
+    margin-left: 35%;
+}
+
+.barGraphStyle {
+    width: 50%;
     height: 40%;
     margin-top: 5%;  
     text-align: center;
-    margin-bottom: 5%;  
-    display:inline;
-    margin-bottom: 10%;
-
+    margin-bottom: 3%;
+    margin-left: 25%;
 }
 
-.graphDivStyleBar {
-    width: 60%;
-    height: 200%;
-    text-align: center;
-
-}
-
-.graphDivStyleDoughnut {
-    width: 30%;
+.graphDivStyleCharts {
+    width: 100%;
     height: 100%;
     text-align: center;
-    margin-right: 10%;
-
+    margin-right: 30%;
 }
+
+.hrStyle {
+    border: 1.5px solid grey;
+}
+
+.linkReturnStyle {
+    color: black;
+    text-align: left;
+    font-size: 15;
+    text-decoration: none;
+    font-weight: 400;
+    font-style: italic;
+    margin: 5%;
+    margin-left: 78%
+}
+
+a:hover { 
+    color: orange;
+}
+
