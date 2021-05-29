@@ -131,8 +131,9 @@ class Results extends Component {
     }
 
     renderS3Data(data) {
+        var renderText = data.replaceAll("~","\\n");
         return (
-            <p className = 'filterTextStyle'>{ data }</p>
+            <p className = 'filterTextStyle'>{ renderText }</p>
         );
     }
         
