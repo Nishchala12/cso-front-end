@@ -237,6 +237,15 @@ class Dashboard extends Component {
 
         //Filter processing begins
 
+        if(this.state.selectS3===true)
+        {
+            if(this.state.selectConsistency===true && this.state.selectErrorRate===true && this.state.selectLatency===true 
+                && this.state.selectElapsedTime===true && this.state.selectConnectionTime===true && this.state.selectThroughput===true)
+            { 
+                this.setState({ filterAlert: "Please select all filters except the one that needs to be predicted.", calculateState: 0 }); 
+                return; 
+            }
+        }
         if((document.getElementById("checkbox").checked===true || document.getElementById("checkbox").checked===false) && 
         (this.state.selectConsistency===false && this.state.selectErrorRate===false && this.state.selectLatency===false 
             && this.state.selectElapsedTime===false && this.state.selectConnectionTime===false && this.state.selectThroughput===false
