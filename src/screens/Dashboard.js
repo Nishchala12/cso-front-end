@@ -383,7 +383,7 @@ class Dashboard extends Component {
         timestamp = moment(Date.now()).format("DD-MM-YYYY h:mm:ss");
 
         const postDataUrl = "https://cloud-service-optimizer-dev.herokuapp.com/front-end/post-process-filters/";
-        const getDataUrl = "http://cloud-service-optimizer-dev.herokuapp.com/front-end/get-results?processingNumber=";
+        const getDataUrl = "https://cloud-service-optimizer-dev.herokuapp.com/front-end/get-results?processingNumber=";
 
         var frontendData = {
             'timestamp': timestamp,
