@@ -5,12 +5,12 @@ import '../styles/Results.css'
 
 class Results extends Component {
 
-    textUtil(text, spacing) {
+    textUtil(text, spacing, alignment) {
         var components = [];
         var renderText = text.split("~");
         for(var i = 0; i < renderText.length; i++)
             components.push(
-                <p className = 'filterTextStyle' style = {{ marginTop: spacing, marginBottom: spacing }}>{ renderText[i] }</p>
+                <p className = 'filterTextStyle' style = {{ marginTop: spacing, marginBottom: spacing, textAlign: alignment }}>{ renderText[i] }</p>
             );
         return components;
     }
@@ -22,7 +22,11 @@ class Results extends Component {
             "t2.small": "#2FDE00",
             "t2.medium": "#00A6B4",
             "t2.large": "#6800B4",
-            "t2.xlarge": "#FF4500"
+            "t2.xlarge": "#FF4500",
+            "db.t2.micro": "#C9DE00",
+            "db.t2.small": "#2FDE00",
+            "db.t2.medium": "#00A6B4",
+        
         };
         const hvColorMap = {
             "t2.nano": "#501800",
@@ -30,7 +34,10 @@ class Results extends Component {
             "t2.small": "#175000",
             "t2.medium": "#003350",
             "t2.large": "#35014F",
-            "t2.xlarge": "#991900"
+            "t2.xlarge": "#991900",
+            "db.t2.micro": "#4B5000",
+            "db.t2.small": "#175000",
+            "db.t2.medium": "#003350",
         };
 
 
@@ -104,7 +111,7 @@ class Results extends Component {
                         }}
                     />
                 </div>
-                { this.textUtil(filterText, 5) }
+                { this.textUtil(filterText, 5, 'center') }
                 <br/>
                 <hr className = 'hrStyle'/>
             </div>
@@ -153,7 +160,7 @@ class Results extends Component {
                     </div>
                     <Link className = 'linkReturnStyle' to = "/dashboard">Return to Dashboard</Link>
                     <div className = 'graphDivStyleCharts'>
-                        { this.textUtil(data, 20) }
+                        { this.textUtil(data, 20, 'justify') }
                     </div> 
                 </div>
             );

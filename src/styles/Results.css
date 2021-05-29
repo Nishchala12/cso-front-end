@@ -84,14 +84,20 @@
 }
 
 .linkReturnStyle {
-    color: black;
+    color: #F9CC88;
+    background-color: #fdfdfd;
+    border-radius: 50px;
     text-align: left;
     font-size: 15;
     text-decoration: none;
-    font-weight: 400;
-    font-style: italic;
+    font-weight: bold;
     margin: 5%;
-    margin-left: 78%
+    margin-left: 78%;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    font-family: 'Arial Narrow Bold';
 }
 
 a:hover { 
