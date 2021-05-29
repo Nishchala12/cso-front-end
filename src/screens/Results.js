@@ -5,6 +5,16 @@ import '../styles/Results.css'
 
 class Results extends Component {
 
+    textUtil(text, spacing) {
+        var components = [];
+        var renderText = text.split("~");
+        for(var i = 0; i < renderText.length; i++)
+            components.push(
+                <p className = 'filterTextStyle' style = {{ marginTop: spacing, marginBottom: spacing }}>{ renderText[i] }</p>
+            );
+        return components;
+    }
+
     createData(filterName, filterData) {
         const bgColorMap = {
             "t2.nano": "#B21F00",
@@ -94,7 +104,8 @@ class Results extends Component {
                         }}
                     />
                 </div>
-                <p className = 'filterTextStyle'>{ filterText }</p> 
+                { this.textUtil(filterText, 5) }
+                <br/>
                 <hr className = 'hrStyle'/>
             </div>
         );
@@ -129,14 +140,7 @@ class Results extends Component {
 
         return graph;
     }
-
-    renderS3Data(data) {
-        var renderText = data.replaceAll("~","\\n");
-        return (
-            <p className = 'filterTextStyle'>{ renderText }</p>
-        );
-    }
-        
+   
     render() {
         var service = this.props.location.state.service;
         var data = this.props.location.state.data;
@@ -149,7 +153,7 @@ class Results extends Component {
                     </div>
                     <Link className = 'linkReturnStyle' to = "/dashboard">Return to Dashboard</Link>
                     <div className = 'graphDivStyleCharts'>
-                        { this.renderS3Data(data) }
+                        { this.textUtil(data, 20) }
                     </div> 
                 </div>
             );

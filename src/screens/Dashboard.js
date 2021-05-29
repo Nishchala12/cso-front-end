@@ -415,95 +415,95 @@ class Dashboard extends Component {
         axios.get(url)
         .then(jsonData => { 
             console.log(jsonData);
-            // jsonData = `{
-            //     "payload": {
-            //       "Connect": {
-            //         "data": {
-            //           "t2.large": 0.214, 
-            //           "t2.micro": 0.229, 
-            //           "t2.nano": 0.224, 
-            //           "t2.small": 0.228, 
-            //           "t2.xlarge": 0.105
-            //         }, 
-            //         "displayName": "Connect", 
-            //         "filterText": "With respect to Connect, these are the observations: Instance Type t2.micro is 0.44% better than Instance Type t2.small. Instance Type t2.micro is 2.23% better than Instance Type t2.nano. Instance Type t2.micro is 7.01% better than Instance Type t2.large. Instance Type t2.micro is 118.1% better than Instance Type t2.xlarge. Instance Type t2.small is 1.79% better than Instance Type t2.nano. Instance Type t2.small is 6.54% better than Instance Type t2.large. Instance Type t2.small is 117.14% better than Instance Type t2.xlarge. Instance Type t2.nano is 4.67% better than Instance Type t2.large. Instance Type t2.nano is 113.33% better than Instance Type t2.xlarge. Instance Type t2.large is 103.81% better than Instance Type t2.xlarge. "
-            //       }, 
-            //       "Latency": {
-            //         "data": {
-            //           "t2.large": 0.208, 
-            //           "t2.micro": 0.217, 
-            //           "t2.nano": 0.227, 
-            //           "t2.small": 0.218, 
-            //           "t2.xlarge": 0.131
-            //         }, 
-            //         "displayName": "Latency", 
-            //         "filterText": "With respect to Latency, these are the observations: Instance Type t2.nano is 4.13% better than Instance Type t2.small. Instance Type t2.nano is 4.61% better than Instance Type t2.micro. Instance Type t2.nano is 9.13% better than Instance Type t2.large. Instance Type t2.nano is 73.28% better than Instance Type t2.xlarge. Instance Type t2.small is 0.46% better than Instance Type t2.micro. Instance Type t2.small is 4.81% better than Instance Type t2.large. Instance Type t2.small is 66.41% better than Instance Type t2.xlarge. Instance Type t2.micro is 4.33% better than Instance Type t2.large. Instance Type t2.micro is 65.65% better than Instance Type t2.xlarge. Instance Type t2.large is 58.78% better than Instance Type t2.xlarge. "
-            //       }, 
-            //       "Throughput": {
-            //         "data": {
-            //           "t2.large": 0.196, 
-            //           "t2.micro": 0.195, 
-            //           "t2.nano": 0.243, 
-            //           "t2.small": 0.239, 
-            //           "t2.xlarge": 0.126
-            //         }, 
-            //         "displayName": "Throughput", 
-            //         "filterText": "With respect to Throughput, these are the observations: Instance Type t2.nano is 1.67% better than Instance Type t2.small. Instance Type t2.nano is 23.98% better than Instance Type t2.large. Instance Type t2.nano is 24.62% better than Instance Type t2.micro. Instance Type t2.nano is 92.86% better than Instance Type t2.xlarge. Instance Type t2.small is 21.94% better than Instance Type t2.large. Instance Type t2.small is 22.56% better than Instance Type t2.micro. Instance Type t2.small is 89.68% better than Instance Type t2.xlarge. Instance Type t2.large is 0.51% better than Instance Type t2.micro. Instance Type t2.large is 55.56% better than Instance Type t2.xlarge. Instance Type t2.micro is 54.76% better than Instance Type t2.xlarge. "
-            //       }, 
-            //       "elapsed": {
-            //         "data": {
-            //           "t2.large": 0.214, 
-            //           "t2.micro": 0.228, 
-            //           "t2.nano": 0.222, 
-            //           "t2.small": 0.228, 
-            //           "t2.xlarge": 0.107
-            //         }, 
-            //         "displayName": "Elapsed", 
-            //         "filterText": "With respect to Elapsed, these are the observations: Instance Type t2.small is 0.0% better than Instance Type t2.small. Instance Type t2.small is 2.7% better than Instance Type t2.nano. Instance Type t2.small is 6.54% better than Instance Type t2.large. Instance Type t2.small is 113.08% better than Instance Type t2.xlarge. Instance Type t2.small is 2.7% better than Instance Type t2.nano. Instance Type t2.small is 6.54% better than Instance Type t2.large. Instance Type t2.small is 113.08% better than Instance Type t2.xlarge. Instance Type t2.nano is 3.74% better than Instance Type t2.large. Instance Type t2.nano is 107.48% better than Instance Type t2.xlarge. Instance Type t2.large is 100.0% better than Instance Type t2.xlarge. "
-            //       }, 
-            //       "errorRate": {
-            //         "data": {
-            //           "t2.large": 0.191, 
-            //           "t2.micro": 0.206, 
-            //           "t2.nano": 0.188, 
-            //           "t2.small": 0.192, 
-            //           "t2.xlarge": 0.223
-            //         }, 
-            //         "displayName": "Error Rate", 
-            //         "filterText": "With respect to Error Rate, these are the observations: Instance Type t2.xlarge is 8.25% better than Instance Type t2.micro. Instance Type t2.xlarge is 16.15% better than Instance Type t2.small. Instance Type t2.xlarge is 16.75% better than Instance Type t2.large. Instance Type t2.xlarge is 18.62% better than Instance Type t2.nano. Instance Type t2.micro is 7.29% better than Instance Type t2.small. Instance Type t2.micro is 7.85% better than Instance Type t2.large. Instance Type t2.micro is 9.57% better than Instance Type t2.nano. Instance Type t2.small is 0.52% better than Instance Type t2.large. Instance Type t2.small is 2.13% better than Instance Type t2.nano. Instance Type t2.large is 1.6% better than Instance Type t2.nano. "
-            //       }, 
-            //       "overall": {
-            //         "data": {
-            //           "t2.large": 0.205, 
-            //           "t2.micro": 0.217, 
-            //           "t2.nano": 0.22, 
-            //           "t2.small": 0.22, 
-            //           "t2.xlarge": 0.141
-            //         }, 
-            //         "displayName": "Overall", 
-            //         "filterText": "With respect to Overall, these are the observations: Instance Type t2.small is 0.0% better than Instance Type t2.small. Instance Type t2.small is 1.38% better than Instance Type t2.micro. Instance Type t2.small is 7.32% better than Instance Type t2.large. Instance Type t2.small is 56.03% better than Instance Type t2.xlarge. Instance Type t2.small is 1.38% better than Instance Type t2.micro. Instance Type t2.small is 7.32% better than Instance Type t2.large. Instance Type t2.small is 56.03% better than Instance Type t2.xlarge. Instance Type t2.micro is 5.85% better than Instance Type t2.large. Instance Type t2.micro is 53.9% better than Instance Type t2.xlarge. Instance Type t2.large is 45.39% better than Instance Type t2.xlarge. "
-            //       }, 
-            //       "stdDev": {
-            //         "data": {
-            //           "t2.large": 0.205, 
-            //           "t2.micro": 0.222, 
-            //           "t2.nano": 0.212, 
-            //           "t2.small": 0.211, 
-            //           "t2.xlarge": 0.15
-            //         }, 
-            //         "displayName": "Consistency", 
-            //         "filterText": "With respect to Consistency, these are the observations: Instance Type t2.micro is 4.72% better than Instance Type t2.nano. Instance Type t2.micro is 5.21% better than Instance Type t2.small. Instance Type t2.micro is 8.29% better than Instance Type t2.large. Instance Type t2.micro is 48.0% better than Instance Type t2.xlarge. Instance Type t2.nano is 0.47% better than Instance Type t2.small. Instance Type t2.nano is 3.41% better than Instance Type t2.large. Instance Type t2.nano is 41.33% better than Instance Type t2.xlarge. Instance Type t2.small is 2.93% better than Instance Type t2.large. Instance Type t2.small is 40.67% better than Instance Type t2.xlarge. Instance Type t2.large is 36.67% better than Instance Type t2.xlarge. "
-            //       }
-            //     }, 
-            //     "processingNumber": "pFxV1Dol5A", 
-            //     "status": "success"
-            //   }`;
-
-            jsonData = `{
-                "payload": "For the entered values of 3999.0 for the filter: Consistency, 1000.0 for the filter: Throughput, 1400.0 for the filter: Elapsed Time, and 1200.0 for the filter: Latency, the predicted value for the filter Error Rate is: -4236.18295746. ~ S3 is an Object storage built to store and retrieve any amount of data from anywhere. S3 has no instance types. ~ Amazon Simple Storage Service (Amazon S3) is an object storage service that offers industry-leading scalability, data availability, security, and performance. ~ This means customers of all sizes and industries can use it to store and protect any amount of data for a range of use cases, such as data lakes, websites, mobile applications, backup and restore, archive, enterprise applications, IoT devices, and big data analytics. ~ Amazon S3 provides easy-to-use management features so you can organize your data and configure finely-tuned access controls to meet your specific business, organizational, and compliance requirements. ~ Amazon S3 is designed for 99.999999999% (11 9's) of durability, and stores data for millions of applications for companies all around the world. ~ Cloud Service Optimizer runs several consistent tests on S3's performance.",
-                "processingNumber": "pScikP4Eti",
+             jsonData = `{
+                "payload": {
+                    "Connect": {
+                        "data": {
+                            "t2.large": 0.214,
+                            "t2.micro": 0.229,
+                            "t2.nano": 0.224,
+                            "t2.small": 0.228,
+                            "t2.xlarge": 0.105
+                        },
+                        "displayName": "Connection Time",
+                        "filterText": "With respect to Connection Time, these are the observations: ~Instance Type t2.micro is 0.44% better than Instance Type t2.small. ~Instance Type t2.micro is 2.23% better than Instance Type t2.nano. ~Instance Type t2.micro is 7.01% better than Instance Type t2.large. ~Instance Type t2.micro is 118.1% better than Instance Type t2.xlarge. ~Instance Type t2.small is 1.79% better than Instance Type t2.nano. ~Instance Type t2.small is 6.54% better than Instance Type t2.large. ~Instance Type t2.small is 117.14% better than Instance Type t2.xlarge. ~Instance Type t2.nano is 4.67% better than Instance Type t2.large. ~Instance Type t2.nano is 113.33% better than Instance Type t2.xlarge. ~Instance Type t2.large is 103.81% better than Instance Type t2.xlarge. ~"
+                    },
+                    "Latency": {
+                        "data": {
+                            "t2.large": 0.208,
+                            "t2.micro": 0.217,
+                            "t2.nano": 0.227,
+                            "t2.small": 0.218,
+                            "t2.xlarge": 0.131
+                        },
+                        "displayName": "Latency",
+                        "filterText": "With respect to Latency, these are the observations: ~Instance Type t2.nano is 4.13% better than Instance Type t2.small. ~Instance Type t2.nano is 4.61% better than Instance Type t2.micro. ~Instance Type t2.nano is 9.13% better than Instance Type t2.large. ~Instance Type t2.nano is 73.28% better than Instance Type t2.xlarge. ~Instance Type t2.small is 0.46% better than Instance Type t2.micro. ~Instance Type t2.small is 4.81% better than Instance Type t2.large. ~Instance Type t2.small is 66.41% better than Instance Type t2.xlarge. ~Instance Type t2.micro is 4.33% better than Instance Type t2.large. ~Instance Type t2.micro is 65.65% better than Instance Type t2.xlarge. ~Instance Type t2.large is 58.78% better than Instance Type t2.xlarge. ~"
+                    },
+                    "Throughput": {
+                        "data": {
+                            "t2.large": 0.196,
+                            "t2.micro": 0.195,
+                            "t2.nano": 0.243,
+                            "t2.small": 0.239,
+                            "t2.xlarge": 0.126
+                        },
+                        "displayName": "Throughput",
+                        "filterText": "With respect to Throughput, these are the observations: ~Instance Type t2.nano is 1.67% better than Instance Type t2.small. ~Instance Type t2.nano is 23.98% better than Instance Type t2.large. ~Instance Type t2.nano is 24.62% better than Instance Type t2.micro. ~Instance Type t2.nano is 92.86% better than Instance Type t2.xlarge. ~Instance Type t2.small is 21.94% better than Instance Type t2.large. ~Instance Type t2.small is 22.56% better than Instance Type t2.micro. ~Instance Type t2.small is 89.68% better than Instance Type t2.xlarge. ~Instance Type t2.large is 0.51% better than Instance Type t2.micro. ~Instance Type t2.large is 55.56% better than Instance Type t2.xlarge. ~Instance Type t2.micro is 54.76% better than Instance Type t2.xlarge. ~"
+                    },
+                    "elapsed": {
+                        "data": {
+                            "t2.large": 0.214,
+                            "t2.micro": 0.228,
+                            "t2.nano": 0.222,
+                            "t2.small": 0.228,
+                            "t2.xlarge": 0.107
+                        },
+                        "displayName": "Elapsed Time",
+                        "filterText": "With respect to Elapsed Time, these are the observations: ~Instance Type t2.small is 0.0% better than Instance Type t2.small. ~Instance Type t2.small is 2.7% better than Instance Type t2.nano. ~Instance Type t2.small is 6.54% better than Instance Type t2.large. ~Instance Type t2.small is 113.08% better than Instance Type t2.xlarge. ~Instance Type t2.small is 2.7% better than Instance Type t2.nano. ~Instance Type t2.small is 6.54% better than Instance Type t2.large. ~Instance Type t2.small is 113.08% better than Instance Type t2.xlarge. ~Instance Type t2.nano is 3.74% better than Instance Type t2.large. ~Instance Type t2.nano is 107.48% better than Instance Type t2.xlarge. ~Instance Type t2.large is 100.0% better than Instance Type t2.xlarge. ~"
+                    },
+                    "errorRate": {
+                        "data": {
+                            "t2.large": 0.191,
+                            "t2.micro": 0.206,
+                            "t2.nano": 0.188,
+                            "t2.small": 0.192,
+                            "t2.xlarge": 0.223
+                        },
+                        "displayName": "Error Rate",
+                        "filterText": "With respect to Error Rate, these are the observations: ~Instance Type t2.xlarge is 8.25% better than Instance Type t2.micro. ~Instance Type t2.xlarge is 16.15% better than Instance Type t2.small. ~Instance Type t2.xlarge is 16.75% better than Instance Type t2.large. ~Instance Type t2.xlarge is 18.62% better than Instance Type t2.nano. ~Instance Type t2.micro is 7.29% better than Instance Type t2.small. ~Instance Type t2.micro is 7.85% better than Instance Type t2.large. ~Instance Type t2.micro is 9.57% better than Instance Type t2.nano. ~Instance Type t2.small is 0.52% better than Instance Type t2.large. ~Instance Type t2.small is 2.13% better than Instance Type t2.nano. ~Instance Type t2.large is 1.6% better than Instance Type t2.nano. ~"
+                    },
+                    "overall": {
+                        "data": {
+                            "t2.large": 0.205,
+                            "t2.micro": 0.217,
+                            "t2.nano": 0.22,
+                            "t2.small": 0.22,
+                            "t2.xlarge": 0.141
+                        },
+                        "displayName": "Overall",
+                        "filterText": "With respect to Overall, these are the observations: ~Instance Type t2.small is 0.0% better than Instance Type t2.small. ~Instance Type t2.small is 1.38% better than Instance Type t2.micro. ~Instance Type t2.small is 7.32% better than Instance Type t2.large. ~Instance Type t2.small is 56.03% better than Instance Type t2.xlarge. ~Instance Type t2.small is 1.38% better than Instance Type t2.micro. ~Instance Type t2.small is 7.32% better than Instance Type t2.large. ~Instance Type t2.small is 56.03% better than Instance Type t2.xlarge. ~Instance Type t2.micro is 5.85% better than Instance Type t2.large. ~Instance Type t2.micro is 53.9% better than Instance Type t2.xlarge. ~Instance Type t2.large is 45.39% better than Instance Type t2.xlarge. ~"
+                    },
+                    "stdDev": {
+                        "data": {
+                            "t2.large": 0.205,
+                            "t2.micro": 0.222,
+                            "t2.nano": 0.212,
+                            "t2.small": 0.211,
+                            "t2.xlarge": 0.15
+                        },
+                        "displayName": "Consistency",
+                        "filterText": "With respect to Consistency, these are the observations: ~Instance Type t2.micro is 4.72% better than Instance Type t2.nano. ~Instance Type t2.micro is 5.21% better than Instance Type t2.small. ~Instance Type t2.micro is 8.29% better than Instance Type t2.large. ~Instance Type t2.micro is 48.0% better than Instance Type t2.xlarge. ~Instance Type t2.nano is 0.47% better than Instance Type t2.small. ~Instance Type t2.nano is 3.41% better than Instance Type t2.large. ~Instance Type t2.nano is 41.33% better than Instance Type t2.xlarge. ~Instance Type t2.small is 2.93% better than Instance Type t2.large. ~Instance Type t2.small is 40.67% better than Instance Type t2.xlarge. ~Instance Type t2.large is 36.67% better than Instance Type t2.xlarge. ~"
+                    }
+                },
+                "processingNumber": "plB1bjefK6",
                 "status": "success"
-            }`;
+             }`;
+
+            // jsonData = `{
+            //     "payload": "For the entered values of 3999.0 for the filter: Consistency, 1000.0 for the filter: Throughput, 1400.0 for the filter: Elapsed Time, and 1200.0 for the filter: Latency, the predicted value for the filter Error Rate is: -4236.18295746. ~ S3 is an Object storage built to store and retrieve any amount of data from anywhere. S3 has no instance types. ~ Amazon Simple Storage Service (Amazon S3) is an object storage service that offers industry-leading scalability, data availability, security, and performance. ~ This means customers of all sizes and industries can use it to store and protect any amount of data for a range of use cases, such as data lakes, websites, mobile applications, backup and restore, archive, enterprise applications, IoT devices, and big data analytics. ~ Amazon S3 provides easy-to-use management features so you can organize your data and configure finely-tuned access controls to meet your specific business, organizational, and compliance requirements. ~ Amazon S3 is designed for 99.999999999% (11 9's) of durability, and stores data for millions of applications for companies all around the world. ~ Cloud Service Optimizer runs several consistent tests on S3's performance.",
+            //     "processingNumber": "pScikP4Eti",
+            //     "status": "success"
+            // }`;
             var response = JSON.parse(jsonData);
 
             if(response.status === "success") {
@@ -514,7 +514,7 @@ class Dashboard extends Component {
             }
         })
         .catch(error => { 
-            console.log(error.response);
+            console.log(error);
             this.setState({calculateState: 3})
         })
     }
