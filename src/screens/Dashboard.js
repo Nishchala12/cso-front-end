@@ -387,7 +387,7 @@ class Dashboard extends Component {
         console.log("isntanceType",instanceType.substring(0, instanceType.length - 1));
 
         //const url = "http://cloud-service-optimizer-dev.herokuapp.com/front-end/post-process-filters/";
-        const url = "http://cloud-service-optimizer-dev.herokuapp.com/front-end/get-content/?string=about-us";
+        const url = "https://cloud-service-optimizer-dev.herokuapp.com/front-end/get-content/?string=about-us";
 
         var frontendData = {
             'timestamp': timestamp,
