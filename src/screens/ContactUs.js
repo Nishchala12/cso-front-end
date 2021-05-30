@@ -12,7 +12,7 @@ class ContactUs extends Component {
                 <div className = 'qDivOverallStyle' >
                     <p className = 'qTitleStyle1' style = {{color: '#F9CC88', display: 'block'}}>Creators:</p>
                     <div className  = 'qDivStyle1'>
-                        <div style = {{width: '25%'}}>
+                        <div style = {{width: '27%'}}>
                             <p className = 'qTextStyle1' style ={{textAlign: 'right'}}>Navneeth Krishna M</p>
                             <p className = 'qTextStyle1' style ={{textAlign: 'right'}}>Nishchala M</p>
                             <p className = 'qTextStyle1' style ={{textAlign: 'right'}}>Oindrila Chakraborti</p>
