@@ -27,6 +27,7 @@ a:hover {
     font-weight: bold;
     height: 10%;
     text-shadow: 2px 2px 2px #222;
+    margin-left: 3%;
 }
 
 .headerDivStyle {
