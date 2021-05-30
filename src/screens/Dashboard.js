@@ -78,8 +78,7 @@ class Dashboard extends Component {
         var reg = new RegExp('^\\d+$');
         var regS3 = new RegExp('^\\d+(\\.\\d+)?$');
         var otherLimit;
-        console.log(checkboxVal);
-        console.log(lowerLimit, upperLimit);
+        
         if(this.state.selectEC2 === true)
             otherLimit = 8;
         else if(this.state.selectRDS === true)
@@ -287,10 +286,12 @@ class Dashboard extends Component {
             var failureTextS3 = "For Amazon S3, priorities can be double / integer values ranging from ";
             var consistencyLimit = 1000, errorLimit = 100, latencyLimit = 300, elapsedLimit = 300, connectionLimit = 300, throughputLimit = 5000, 
             consistencyLowerLimit = 100, lowerLimit = 0;
+            var s3FilterCount = 0;
 
             if (this.state.selectConsistency===true)  { 
                 if(this.validateEntry(document.getElementById("PrConsistency").value, consistencyLowerLimit, consistencyLimit)) {
                     filters += "stdDev,"; 
+                    s3FilterCount++;
                     priorities += document.getElementById("PrConsistency").value+","; 
                 } 
                 else {
@@ -304,6 +305,7 @@ class Dashboard extends Component {
             if (this.state.selectErrorRate===true) { 
                 if(this.validateEntry(document.getElementById("PrError").value, lowerLimit, errorLimit)) {
                     filters += "errorRate,"; 
+                    s3FilterCount++;
                     priorities += document.getElementById("PrError").value+","; 
                 } 
                 else {
@@ -316,7 +318,8 @@ class Dashboard extends Component {
             }
             if (this.state.selectLatency===true) { 
                 if(this.validateEntry(document.getElementById("PrLatency").value, lowerLimit, latencyLimit)) {
-                    filters += "Latency,"; 
+                    filters += "Latency,";
+                    s3FilterCount++; 
                     priorities += document.getElementById("PrLatency").value+","; 
                 } 
                 else {
@@ -330,6 +333,7 @@ class Dashboard extends Component {
             if (this.state.selectElapsedTime===true) { 
                 if(this.validateEntry(document.getElementById("PrElapsed").value, lowerLimit, elapsedLimit)) {
                     filters += "elapsed,"; 
+                    s3FilterCount++;
                     priorities += document.getElementById("PrElapsed").value+","; 
                 } else {
                     if(this.state.selectS3 === true)
@@ -342,6 +346,7 @@ class Dashboard extends Component {
             if (this.state.selectConnectionTime===true) { 
                 if(this.validateEntry(document.getElementById("PrConnection").value, lowerLimit, connectionLimit)) {
                     filters += "Connect,"; 
+                    s3FilterCount++;
                     priorities += document.getElementById("PrConnection").value+","; 
                 } 
                 else {
@@ -354,7 +359,8 @@ class Dashboard extends Component {
             }
             if (this.state.selectThroughput===true) { 
                 if(this.validateEntry(document.getElementById("PrThroughput").value, lowerLimit, throughputLimit)) {
-                    filters += "Throughput,"; 
+                    filters += "Throughput,";
+                    s3FilterCount++; 
                     priorities += document.getElementById("PrThroughput").value+","; 
                 } 
                 else {
@@ -385,6 +391,16 @@ class Dashboard extends Component {
                     return;
                 }
             }
+            console.log("Filter count", s3FilterCount)
+            if(this.state.selectS3===true)
+            {
+                if(s3FilterCount !== 5)
+                {
+                    this.setState({ filterAlert: "Please select all filters except the one that needs to be predicted.", calculateState: 0  });
+                    return;
+                }
+            }
+
             this.setState({ filterAlert: successText });    
         }
     
@@ -417,24 +433,28 @@ class Dashboard extends Component {
             console.log("pNo. obtained via POST", postJsonData.data);
             
             var postResponse = postJsonData.data
+            var delayInMilliseconds = 2000; //2 second delay
 
-            axios.get(getDataUrl + postResponse.message)
-            .then(getJsonData => { 
-                console.log("GET Response (payload)", getJsonData);
-                
-                var getResponse = getJsonData.data;
-    
-                if(getResponse.status === "success") {
-                    this.setState({calculateState: 2, response: getResponse.payload})
-                }
-                else {
+            setTimeout(() => {
+                console.log("Initiating a 2 second delay.")
+                axios.get(getDataUrl + postResponse.message)
+                .then(getJsonData => { 
+                    console.log("GET Response (payload)", getJsonData);
+                    
+                    var getResponse = getJsonData.data;
+        
+                    if(getResponse.status === "success") {
+                        this.setState({calculateState: 2, response: getResponse.payload})
+                    }
+                    else {
+                        this.setState({calculateState: 3})
+                    }
+                })
+                .catch(error => { 
+                    console.log(error);
                     this.setState({calculateState: 3})
-                }
-            })
-            .catch(error => { 
-                console.log(error);
-                this.setState({calculateState: 3})
-            })
+                })
+            }, delayInMilliseconds)
         })
         .catch(error => { 
             console.log(error);
@@ -563,9 +583,9 @@ class Dashboard extends Component {
                     
                     { selectRDS && showHideInstances && (
                         <div className = 'serviceDivStyle'>
-                            <button className={selectT2Micro ? "t2MicroStyleTrue": "t2MicroStyleFalse"} onClick={() => this.handleClick("T2Micro")}>t2.micro</button>
-                            <button className={selectT2Small ? "t2SmallStyleTrue": "t2SmallStyleFalse"} onClick={() => this.handleClick("T2Small")}>t2.small</button>
-                            <button className={selectT2Medium ? "t2MediumStyleTrue": "t2MediumStyleFalse"} onClick={() => this.handleClick("T2Medium")}>t2.medium</button>
+                            <button className={selectT2Micro ? "t2MicroStyleTrue": "t2MicroStyleFalse"} onClick={() => this.handleClick("T2Micro")}>db.t2.micro</button>
+                            <button className={selectT2Small ? "t2SmallStyleTrue": "t2SmallStyleFalse"} onClick={() => this.handleClick("T2Small")}>db.t2.small</button>
+                            <button className={selectT2Medium ? "t2MediumStyleTrue": "t2MediumStyleFalse"} onClick={() => this.handleClick("T2Medium")}>db.t2.medium</button>
                             <p className='alertStyle'>{instanceAlert}</p>
                         </div>
                         )

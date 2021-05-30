@@ -435,7 +435,7 @@
     font-weight: bold;
     font-size: 100%;
     color: #FDFDFD;
-    margin-bottom: 5%;
+    
 }
 
 .t2NanoStyleFalse {
@@ -451,7 +451,7 @@
     font-weight: bold;
     font-size: 100%;
     color: #FDFDFD;
-    margin-bottom: 5%;
+   
 }
 
 .t2MicroStyleTrue {
@@ -467,7 +467,7 @@
     font-weight: bold;
     font-size: 100%;
     color: #FDFDFD;
-    margin-bottom: 5%;
+   
 }
 
 .t2MicroStyleFalse {
@@ -483,7 +483,7 @@
     font-weight: bold;
     font-size: 100%;
     color: #FDFDFD;
-    margin-bottom: 5%;
+  
 }
 
 .t2SmallStyleTrue {
@@ -499,7 +499,7 @@
     font-weight: bold;
     font-size: 100%;
     color: #FDFDFD;
-    margin-bottom: 5%;
+   
 }
 
 .t2SmallStyleFalse {
@@ -515,7 +515,7 @@
     font-weight: bold;
     font-size: 100%;
     color: #FDFDFD;
-    margin-bottom: 5%;
+   
 }
 
 .t2MediumStyleTrue {
@@ -531,7 +531,7 @@
     font-weight: bold;
     font-size: 100%;
     color: #FDFDFD;
-    margin-bottom: 5%;
+    
 }
 
 .t2MediumStyleFalse {
@@ -547,7 +547,6 @@
     font-weight: bold;
     font-size: 100%;
     color: #FDFDFD;
-    margin-bottom: 5%;
 }
 
 .t2LargeStyleTrue {
@@ -594,6 +593,7 @@
     font-weight: bold;
     font-size: 100%;
     color: #FDFDFD;
+    margin-top: 5%;
 }
 
 .t2XLargeStyleFalse {
@@ -609,6 +609,7 @@
     font-weight: bold;
     font-size: 100%;
     color: #FDFDFD;
+    margin-top: 5%;
 }
 
 .calculateDivStyle {

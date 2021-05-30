@@ -104,3 +104,148 @@ a:hover {
     color: orange;
 }
 
+.s3DivStyle {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify;
+    justify-content: center;
+    align-items: center;
+}
+
+.s3FilterHeadingStyle {
+    color: #696969;
+    font-family: 'Arial Narrow Bold';
+    font-weight: bold;
+    font-size: 140%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.filterHeadingStyle {
+    color: #696969;
+    font-family: 'Arial Narrow Bold';
+    font-weight: bold;
+    font-size: 120%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.selectedS3FilterNameStyle {
+    color: #F9CC88;
+    background-color: #FDFDFD;
+    border-radius: 50px;
+    padding: 0.7%;
+    margin-right: 2%;
+    padding-right: 2%;
+    padding-left: 2%;
+    font-family: 'Arial Narrow Bold';
+    font-weight: bold;
+    font-size: 100%;
+    margin-bottom: 0.7%;
+    width: 11%;
+    text-align: center;
+}
+
+.selectedS3FilterValueStyle {
+    color: #F9CC88;
+    background-color: #FDFDFD;
+    border-radius: 50px;
+    padding: 0.7%;
+    margin-right: 2%;
+    padding-right: 2%;
+    padding-left: 2%;
+    font-family: 'Arial Narrow Bold';
+    font-weight: bold;
+    font-size: 100%;
+    margin-bottom: 0.7%;
+    justify-content: flex;
+    text-align: center;
+    width: 7%;
+}
+
+.predictedS3FilterNameStyle {
+    color: #FDFDFD;
+    background-color: #F9CC88;
+    border-radius: 50px;
+    padding: 0.7%;
+    margin-right: 2%;
+    padding-right: 2%;
+    padding-left: 2%;
+    font-family: 'Arial Narrow Bold';
+    font-weight: bold;
+    font-size: 100%;
+    margin-bottom: 0.7%;
+    width: 11%;
+    text-align: center;
+}
+
+.predictedS3FilterValueStyle {
+    color: #FDFDFD;
+    background-color: #F9CC88;
+    border-radius: 50px;
+    padding: 0.7%;
+    margin-right: 2%;
+    padding-right: 2%;
+    padding-left: 2%;
+    font-family: 'Arial Narrow Bold';
+    font-weight: bold;
+    font-size: 100%;
+    margin-bottom: 0.7%;
+    text-align: center;
+    width: 7%;
+}
+
+.aboutS3DivStyle {
+    background-color: #FDFDFD;
+    border-radius: 50px;
+    padding: 4%;
+    width: 80%;
+    margin-bottom: 3%;
+    margin-left: 6.7%;
+    background: rgba(255,255,255,0.7);
+}
+
+.aboutS3TextStyle {
+    color: #696969;
+    font-family: 'Arial Narrow Bold';
+    font-weight: bold;
+    font-size: 100%;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    text-align: justify;
+}
+
+.instanceNameStyle {
+    color: #FDFDFD;
+    background-color: #F9CC88;
+    border-radius: 50px;
+    padding: 0.7%;
+    margin-right: 2%;
+    padding-right: 2%;
+    padding-left: 2%;
+    font-family: 'Arial Narrow Bold';
+    font-weight: bold;
+    font-size: 100%;
+    margin-bottom: 0.7%;
+    width: 14%;
+    text-align: center;
+}
+
+.instanceValueStyle {
+    color: #F9CC88;
+    background-color: #FDFDFD;
+    border-radius: 50px;
+    padding: 0.7%;
+    margin-right: 2%;
+    padding-right: 2%;
+    padding-left: 2%;
+    font-family: 'Arial Narrow Bold';
+    font-weight: bold;
+    font-size: 100%;
+    margin-bottom: 0.7%; 
+    text-align: center;
+    width: 7%;
+}

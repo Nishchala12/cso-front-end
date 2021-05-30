@@ -5,13 +5,81 @@ import '../styles/Results.css'
 
 class Results extends Component {
 
-    textUtil(text, spacing, alignment) {
+    // textUtil(text, spacing, alignment) {
+    //     var components = [];
+    //     var renderText = text.split("~");
+    //     for(var i = 0; i < renderText.length; i++)
+    //         components.push(
+    //             <p className = 'filterTextStyle' style = {{ marginTop: spacing, marginBottom: spacing, textAlign: alignment }}>{ renderText[i] }</p>
+    //         );
+    //     return components;
+    // }
+
+    textUtil() {
         var components = [];
-        var renderText = text.split("~");
-        for(var i = 0; i < renderText.length; i++)
+        var jsonData = {
+            't2.micro > t2.large': 2.3, 
+            't2.micro > t2.xlarge': 4.6,
+            't2.small > t2.medium': 5.66,
+            't2.medium > t2.nano': 4.57,
+            't2.micro > t2.small': 3.93
+        }
+        components.push(
+            <p className = 'filterHeadingStyle'>Observations</p>
+        );
+        Object.entries(jsonData).forEach(item => {
+            var instanceName = item[0];
+            var instanceValue = item[1];
             components.push(
-                <p className = 'filterTextStyle' style = {{ marginTop: spacing, marginBottom: spacing, textAlign: alignment }}>{ renderText[i] }</p>
+                <div className = 's3DivStyle'>
+                    <div className = 'instanceNameStyle'>{ instanceName }</div>
+                    <div className = 'instanceValueStyle'>{ instanceValue + "%" }</div>
+                </div>
             );
+        })
+        return components;
+    }
+
+    s3TextUtil() {
+        var components = [];
+        var s3JsonData = {
+            selectedValues: {
+                'Consistency': 56.768,
+                'Elapsed Time': 70.62,
+                'Connection Time': 90.33,
+                'Latency': 55.55,
+                'Throughput': 11.11951
+            },
+            predictedValue: {
+                'Error Rate': 70.95
+            }
+        };
+        components.push(
+            <p className = 's3FilterHeadingStyle'>Selected Filters</p>
+        );
+        Object.entries(s3JsonData.selectedValues).forEach(item => {
+            var filterName = item[0];
+            var filterValue = item[1];
+            components.push(
+                <div className = 's3DivStyle'>
+                    <div className = 'selectedS3FilterNameStyle'>{ filterName }</div>
+                    <div className = 'selectedS3FilterValueStyle'>{ filterValue }</div>
+                </div>
+            );
+        })
+        components.push(
+            <p className = 's3FilterHeadingStyle'>Predicted Filter</p>
+        );
+        Object.entries(s3JsonData.predictedValue).forEach(item => {
+            var filterName = item[0];
+            var filterValue = item[1];
+            components.push(
+                <div className = 's3DivStyle'>
+                    <div className = 'predictedS3FilterNameStyle'>{ filterName }</div>
+                    <div className = 'predictedS3FilterValueStyle'>{ filterValue }</div>
+                </div>
+            );
+        })
         return components;
     }
 
@@ -72,7 +140,6 @@ class Results extends Component {
     }
 
     createCharts(data, filterText, displayName) {
-        // Bar.defaults.legend.display = false;
         return(
             <div>
                 <div className = 'doughnutGraphStyle'>
@@ -111,7 +178,7 @@ class Results extends Component {
                         }}
                     />
                 </div>
-                { this.textUtil(filterText, 5, 'center') }
+                { this.textUtil() }
                 <br/>
                 <hr className = 'hrStyle'/>
             </div>
@@ -160,7 +227,20 @@ class Results extends Component {
                     </div>
                     <Link className = 'linkReturnStyle' to = "/dashboard">Return to Dashboard</Link>
                     <div className = 'graphDivStyleCharts'>
-                        { this.textUtil(data, 20, 'justify') }
+                        { this.s3TextUtil() }
+                        <p className = 's3FilterHeadingStyle'>About S3</p>
+                        <div className = 'aboutS3DivStyle'>
+
+                            <p className = 'aboutS3TextStyle'>S3 is an Object storage built to store and retrieve any amount of data from anywhere. 
+                            S3 has no instance types.<br/><br/> Amazon Simple Storage Service (Amazon S3) is an object storage service that offers industry-leading 
+                            scalability, data availability, security, and performance.<br/><br/>This means customers of all sizes and industries can use it to store 
+                            and protect any amount of data for a range of use cases, such as data lakes, websites, mobile applications, backup and 
+                            restore, archive, enterprise applications, IoT devices, and big data analytics.<br/><br/> Amazon S3 provides easy-to-use 
+                            management features so you can organize your data and configure finely-tuned access controls to meet your specific business, 
+                            organizational, and compliance requirements. <br/><br/>Amazon S3 is designed for 99.999999999% (11 9's) of durability, and stores 
+                            data for millions of applications for companies all around the world.<br/><br/><span style = {{color: '#F9CC88'}}>Cloud Service Optimizer</span> runs several consistent 
+                            tests on S3's performance.</p>
+                        </div>
                     </div> 
                 </div>
             );

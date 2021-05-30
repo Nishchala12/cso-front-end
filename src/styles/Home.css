@@ -1,10 +1,18 @@
 .linkStyle {
-    color: black;
-    margin-left: 4.2%;
+    color: #F9CC88;
+    background-color: #fdfdfd;
+    border-radius: 50px;
+    text-align: center;
     font-size: 15;
     text-decoration: none;
-    font-weight: 400;
-    font-style: italic;
+    font-weight: bold;
+    margin: 2%;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-top: 0.7%;
+    padding-bottom: 0.7%;
+    font-family: 'Arial Narrow Bold';
+    margin-top: 10%;
 }
 
 a:hover { 
@@ -30,6 +38,7 @@ a:hover {
     display: flex; 
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
+    margin-bottom: 2%;
 }
 
 .linkDivStyle {
@@ -43,4 +52,29 @@ a:hover {
     width: 7%;
     margin-bottom: 1%;
     margin-top: 2%;
+}
+
+.introDivStyle {
+    width: 70%;
+    text-align: justify;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 7%;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;
+    background-color: #F9CC88;
+    padding: 3%;
+    background: rgba(255,255,255,0.5);
+    margin-bottom: 7%;
+}
+
+.introTextStyle {
+    color: #696969;
+    font-family: 'Arial Narrow Bold';
+    font-weight: bold;
+    font-size: 100%;
+    margin-left: 7%;
+    margin-right: 7%;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
