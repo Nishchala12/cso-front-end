@@ -56,7 +56,7 @@ class Dashboard extends Component {
                         <button className = 'calculateButtonStyle' onClick={() => {
                             this.handleCalculate(); 
                         }}>Save</button>
-                        <p className='alertStyle'>Processing failed. Try again.</p>
+                        <p className='lastAlertStyle'>Processing failed. Try again.</p>
                     </div>
                 );
             default: console.log("Invalid calculate button state");

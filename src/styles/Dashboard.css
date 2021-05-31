@@ -667,6 +667,17 @@
     padding: 2%;
 }
 
+.lastAlertStyle {
+    color: #696969;
+    text-align: left;
+    font-family: 'Arial Narrow Bold';
+    font-weight: bold;
+    font-size: 130%;
+    text-align: center;
+    margin-top: 0.7%;
+    padding: 2%;
+}
+
 .priorityTextStyle {
     background-color: #D3D3D3;
     padding-top: 10px;
