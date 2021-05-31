@@ -432,10 +432,10 @@ class Dashboard extends Component {
             console.log("pNo. obtained via POST", postJsonData.data);
             
             var postResponse = postJsonData.data
-            var delayInMilliseconds = 2000; //2 second delay
+            var delayInMilliseconds = 3000; //3 second delay
 
             setTimeout(() => {
-                console.log("Initiating a 2 second delay.")
+                console.log("Initiating a 3 second delay.")
                 axios.get(getDataUrl + postResponse.message)
                 .then(getJsonData => { 
                     console.log("GET Response (payload)", getJsonData);
