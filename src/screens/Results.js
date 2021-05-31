@@ -41,7 +41,7 @@ class Results extends Component {
         components.push(
             <p className = 's3FilterHeadingStyle'>Predicted Filter</p>
         );
-        Object.entries(payload.predictedValue).forEach(item => {
+        Object.entries(payload.predictedValues).forEach(item => {
             var filterName = item[0];
             var filterValue = item[1];
             components.push(
@@ -189,7 +189,7 @@ class Results extends Component {
     render() {
         var service = this.props.location.state.service;
         var data = this.props.location.state.data;
-
+        console.log(data);
         if(service === "Amazon S3") {
             return(
                 <div>
