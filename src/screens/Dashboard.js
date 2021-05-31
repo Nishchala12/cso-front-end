@@ -7,6 +7,353 @@ class Dashboard extends Component {
 
     constructor() {
         super();
+        var ec2 = "Amazon EC2";
+        var s3 = "Amazon S3";
+        var rds = "Amazon RDS";
+
+        var defaultJson = {}
+        defaultJson[ec2] = {
+            "overall": {
+                "filterCompare": {
+                    "t2.xlarge > t2.large": "72.02",
+                    "t2.xlarge > t2.medium": "95.27",
+                    "t2.xlarge > t2.small": "112.5",
+                    "t2.xlarge > t2.micro": "115.67",
+                    "t2.xlarge > t2.nano": "131.2",
+                    "t2.large > t2.medium": "13.51",
+                    "t2.large > t2.small": "23.53",
+                    "t2.large > t2.micro": "25.37",
+                    "t2.large > t2.nano": "34.4",
+                    "t2.medium > t2.small": "8.82",
+                    "t2.medium > t2.micro": "10.45",
+                    "t2.medium> t2.nano": "18.4",
+                    "t2.small > t2.micro": "1.49",
+                    "t2.small > t2.nano": "8.8",
+                    "t2.micro > t2.nano": "7.2"
+                },
+                "data": {
+                    "t2.xlarge": 0.289,
+                    "t2.large": 0.168,
+                    "t2.medium": 0.148,
+                    "t2.small": 0.136,
+                    "t2.micro": 0.134,
+                    "t2.nano": 0.125
+                },
+                "displayName": "Overall"
+            },
+            "stdDev": {
+                "filterCompare": {
+                    "t2.xlarge > t2.micro": "88.59",
+                    "t2.xlarge > t2.large": "93.79",
+                    "t2.xlarge > t2.small": "96.5",
+                    "t2.xlarge > t2.medium": "99.29",
+                    "t2.micro > t2.large": "2.76",
+                    "t2.micro > t2.small": "4.2",
+                    "t2.micro > t2.medium": "5.67",
+                    "t2.large > t2.small": "1.4",
+                    "t2.large > t2.medium": "2.84",
+                    "t2.small > t2.medium": "1.42",
+                    "t2.medium > t2.medium": "0.0"
+                },
+                "data": {
+                    "t2.xlarge": 0.281,
+                    "t2.micro": 0.149,
+                    "t2.large": 0.145,
+                    "t2.small": 0.143,
+                    "t2.nano": 0.141,
+                    "t2.medium": 0.141
+                },
+                "displayName": "Consistency"
+            },
+            "errorRate": {
+                "filterCompare": {
+                    "t2.micro > t2.small": "3.55",
+                    "t2.micro > t2.medium": "4.17",
+                    "t2.micro > t2.xlarge": "14.38",
+                    "t2.small > t2.medium": "0.6",
+                    "t2.small > t2.xlarge": "10.46",
+                    "t2.medium > t2.medium": "0.0",
+                    "t2.medium > t2.xlarge": "9.8"
+                },
+                "data": {
+                    "t2.micro": 0.175,
+                    "t2.small": 0.169,
+                    "t2.nano": 0.168,
+                    "t2.large": 0.168,
+                    "t2.medium": 0.168,
+                    "t2.xlarge": 0.153
+                },
+                "displayName": "Error Rate"
+            },
+            "Throughput": {
+                "filterCompare": {
+                    "t2.xlarge > t2.large": "53.16",
+                    "t2.xlarge > t2.small": "56.13",
+                    "t2.xlarge > t2.medium": "61.33",
+                    "t2.xlarge > t2.micro": "62.42",
+                    "t2.xlarge > t2.nano": "65.75",
+                    "t2.large > t2.small": "1.94",
+                    "t2.large > t2.medium": "5.33",
+                    "t2.large > t2.micro": "6.04",
+                    "t2.large > t2.nano": "8.22",
+                    "t2.small > t2.medium": "3.33",
+                    "t2.small > t2.micro": "4.03",
+                    "t2.small > t2.nano": "6.16",
+                    "t2.medium > t2.micro": "0.67",
+                    "t2.medium > t2.nano": "2.74",
+                    "t2.micro > t2.nano": "2.05"
+                },
+                "data": {
+                    "t2.xlarge": 0.242,
+                    "t2.large": 0.158,
+                    "t2.small": 0.155,
+                    "t2.medium": 0.15,
+                    "t2.micro": 0.149,
+                    "t2.nano": 0.146
+                },
+                "displayName": "Throughput"
+            },
+            "elapsed": {
+                "filterCompare": {
+                    "t2.xlarge > t2.micro": "64.71",
+                    "t2.xlarge > t2.small": "65.79",
+                    "t2.xlarge > t2.medium": "69.13",
+                    "t2.xlarge > t2.nano": "73.79",
+                    "t2.micro > t2.small": "0.66",
+                    "t2.micro > t2.medium": "2.68",
+                    "t2.micro > t2.nano": "5.52",
+                    "t2.small > t2.medium": "2.01",
+                    "t2.small > t2.nano": "4.83",
+                    "t2.medium > t2.medium": "0.0",
+                    "t2.medium > t2.nano": "2.76"
+                },
+                "data": {
+                    "t2.xlarge": 0.252,
+                    "t2.micro": 0.153,
+                    "t2.small": 0.152,
+                    "t2.large": 0.149,
+                    "t2.medium": 0.149,
+                    "t2.nano": 0.145
+                },
+                "displayName": "Elapsed Time"
+            },
+            "Latency": {
+                "filterCompare": {
+                    "t2.xlarge > t2.nano": "111.97",
+                    "t2.xlarge > t2.small": "115.0",
+                    "t2.xlarge > t2.large": "116.55",
+                    "t2.xlarge > t2.medium": "118.12",
+                    "t2.nano > t2.small": "1.43",
+                    "t2.nano > t2.large": "2.16",
+                    "t2.nano > t2.medium": "2.9",
+                    "t2.small > t2.small": "0.0",
+                    "t2.small > t2.large": "0.72",
+                    "t2.small > t2.medium": "1.45",
+                    "t2.large > t2.medium": "0.72"
+                },
+                "data": {
+                    "t2.xlarge": 0.301,
+                    "t2.nano": 0.142,
+                    "t2.micro": 0.14,
+                    "t2.small": 0.14,
+                    "t2.large": 0.139,
+                    "t2.medium": 0.138
+                },
+                "displayName": "Latency"
+            },
+            "Connect": {
+                "filterCompare": {
+                    "t2.xlarge > t2.micro": "61.69",
+                    "t2.xlarge > t2.small": "63.82",
+                    "t2.xlarge > t2.medium": "67.11",
+                    "t2.xlarge > t2.nano": "69.39",
+                    "t2.micro > t2.small": "1.32",
+                    "t2.micro > t2.medium": "3.36",
+                    "t2.micro > t2.nano": "4.76",
+                    "t2.small > t2.medium": "2.01",
+                    "t2.small > t2.nano": "3.4",
+                    "t2.medium > t2.medium": "0.0",
+                    "t2.medium > t2.nano": "1.36"
+                },
+                "data": {
+                    "t2.xlarge": 0.249,
+                    "t2.micro": 0.154,
+                    "t2.small": 0.152,
+                    "t2.large": 0.149,
+                    "t2.medium": 0.149,
+                    "t2.nano": 0.147
+                },
+                "displayName": "Connection Time"
+            },
+            "CPU": {
+                "filterCompare": {
+                    "t2.xlarge > t2.large": "83.25",
+                    "t2.xlarge > t2.medium": "114.72",
+                    "t2.xlarge > t2.small": "221.1",
+                    "t2.xlarge > t2.micro": "243.14",
+                    "t2.xlarge > t2.nano": "306.98",
+                    "t2.large > t2.medium": "17.18",
+                    "t2.large > t2.small": "75.23",
+                    "t2.large > t2.micro": "87.25",
+                    "t2.large > t2.nano": "122.09",
+                    "t2.medium > t2.small": "49.54",
+                    "t2.medium > t2.micro": "59.8",
+                    "t2.medium > t2.nano": "89.53",
+                    "t2.small > t2.micro": "6.86",
+                    "t2.small > t2.nano": "26.74",
+                    "t2.micro > t2.nano": "18.6"
+                },
+                "data": {
+                    "t2.xlarge": 0.35,
+                    "t2.large": 0.191,
+                    "t2.medium": 0.163,
+                    "t2.small": 0.109,
+                    "t2.micro": 0.102,
+                    "t2.nano": 0.086
+                },
+                "displayName": "CPU Utilization"
+            },
+            "memory": {
+                "filterCompare": {
+                    "t2.xlarge > t2.large": "96.37",
+                    "t2.xlarge > t2.medium": "289.6",
+                    "t2.xlarge > t2.small": "616.18",
+                    "t2.xlarge > t2.micro": "958.7",
+                    "t2.xlarge > t2.nano": "1773.08",
+                    "t2.large > t2.medium": "98.4",
+                    "t2.large > t2.small": "264.71",
+                    "t2.large > t2.micro": "439.13",
+                    "t2.large > t2.nano": "853.85",
+                    "t2.medium > t2.small": "83.82",
+                    "t2.medium > t2.micro": "171.74",
+                    "t2.medium > t2.nano": "380.77",
+                    "t2.small > t2.micro": "47.83",
+                    "t2.small > t2.nano": "161.54",
+                    "t2.micro > t2.nano": "76.92"
+                },
+                "data": {
+                    "t2.xlarge": 0.487,
+                    "t2.large": 0.248,
+                    "t2.medium": 0.125,
+                    "t2.small": 0.068,
+                    "t2.micro": 0.046,
+                    "t2.nano": 0.026
+                },
+                "displayName": "memory"
+            }
+        };
+        defaultJson[s3] = {
+            "predictedValues": {
+                "Consistency": "425.82"
+            },
+            "selectedValues": {
+                "Connection Time": 24.0,
+                "Elapsed Time": 2116.0,
+                "Error Rate": 83.0,
+                "Latency": 28.0,
+                "Throughput": 36.0
+            }     
+        };
+        defaultJson[rds] = {
+            "Connect": {
+                "data": {
+                    "db.t2.medium": 0.34,
+                    "db.t2.micro": 0.32,
+                    "db.t2.small": 0.339
+                },
+                "displayName": "Connection Time",
+                "filterCompare": {
+                    "db.t2.medium > db.t2.micro": "6.25",
+                    "db.t2.medium > db.t2.small": "0.29",
+                    "db.t2.small > db.t2.micro": "5.94"
+                }
+            },
+            "Latency": {
+                "data": {
+                    "db.t2.medium": 0.311,
+                    "db.t2.micro": 0.392,
+                    "db.t2.small": 0.297
+                },
+                "displayName": "Latency",
+                "filterCompare": {
+                    "db.t2.medium > db.t2.small": "4.71",
+                    "db.t2.micro > db.t2.medium": "26.05",
+                    "db.t2.micro > db.t2.small": "31.99"
+                }
+            },
+            "Throughput": {
+                "data": {
+                    "db.t2.medium": 0.325,
+                    "db.t2.micro": 0.345,
+                    "db.t2.small": 0.329
+                },
+                "displayName": "Throughput",
+                "filterCompare": {
+                    "db.t2.micro > db.t2.medium": "6.15",
+                    "db.t2.micro > db.t2.small": "4.86",
+                    "db.t2.small > db.t2.medium": "1.23"
+                }
+            },
+            "elapsed": {
+                "data": {
+                    "db.t2.medium": 0.341,
+                    "db.t2.micro": 0.321,
+                    "db.t2.small": 0.338
+                },
+                "displayName": "Elapsed Time",
+                "filterCompare": {
+                    "db.t2.medium > db.t2.micro": "6.23",
+                    "db.t2.medium > db.t2.small": "0.89",
+                    "db.t2.small > db.t2.micro": "5.3"
+                }
+            },
+            "errorRate": {
+                "data": {
+                    "db.t2.medium": 0.284,
+                    "db.t2.micro": 0.403,
+                    "db.t2.small": 0.313
+                },
+                "displayName": "Error Rate",
+                "filterCompare": {
+                    "db.t2.micro > db.t2.medium": "41.9",
+                    "db.t2.micro > db.t2.small": "28.75",
+                    "db.t2.small > db.t2.medium": "10.21"
+                }
+            },
+            "overall": {
+                "data": {
+                    "db.t2.medium": 0.315,
+                    "db.t2.micro": 0.361,
+                    "db.t2.small": 0.325
+                },
+                "displayName": "Overall",
+                "filterCompare": {
+                    "db.t2.micro > db.t2.medium": "14.6",
+                    "db.t2.micro > db.t2.small": "11.08",
+                    "db.t2.small > db.t2.medium": "3.17"
+                }
+            },
+            "stdDev": {
+                "data": {
+                    "db.t2.medium": 0.284,
+                    "db.t2.micro": 0.383,
+                    "db.t2.small": 0.333
+                },
+                "displayName": "Consistency",
+                "filterCompare": {
+                    "db.t2.micro > db.t2.medium": "34.86",
+                    "db.t2.micro > db.t2.small": "15.02",
+                    "db.t2.small > db.t2.medium": "17.25"
+                }
+            }
+        };
+
+        this.ec2 = ec2;
+        this.s3 = s3;
+        this.rds = rds;
+        this.defaultResponse = defaultJson;
+        
+
         this.state = {
           showHideServices: false, showHideFilters: false, showHideInstances: false,
           selectEC2: false, selectS3: false, selectRDS: false,
@@ -15,12 +362,13 @@ class Dashboard extends Component {
           selectT2Micro: false, selectT2Nano: false, selectT2Small: false, selectT2Medium: false, selectT2Large: false, selectT2XLarge: false,
           calculateState: 0, response: {}
         };
+
         this.hideComponent = this.hideComponent.bind(this);
         this.handleClick = this.handleClick.bind(this);
         this.handleCalculate = this.handleCalculate.bind(this);
         this.calculateButton = this.calculateButton.bind(this);
     }
-    
+
     calculateButton() {
         switch(this.state.calculateState) {
             case 0:
@@ -44,7 +392,7 @@ class Dashboard extends Component {
                             <button className = 'calculateButtonStyle' onClick={() => {
                                 history.push({
                                     pathname:'./results',
-                                    state: {data: this.state.response, service: this.getService() }
+                                    state: { data: this.state.response, service: this.getService() }
                                 }) 
                             }}>Show Results</button>
                         </div>
@@ -66,11 +414,11 @@ class Dashboard extends Component {
 
     getService() {
         if(this.state.selectEC2 === true)
-            return "Amazon EC2";
+            return this.ec2;
         else if(this.state.selectS3 === true)
-            return "Amazon S3";
+            return this.s3;
         else if(this.state.selectRDS === true)
-            return "Amazon RDS";
+            return this.rds;
 
     }
 
@@ -406,9 +754,6 @@ class Dashboard extends Component {
         var moment = require('moment');
         timestamp = moment(Date.now()).format("DD-MM-YYYY h:mm:ss");
 
-        const postDataUrl = "https://cloud-service-optimizer-dev.herokuapp.com/front-end/post-process-filters/";
-        const getDataUrl = "https://cloud-service-optimizer-dev.herokuapp.com/front-end/get-results?processingNumber=";
-
         var frontendData = {
             'timestamp': timestamp,
             'filters': filters.substring(0, filters.length - 1),
@@ -416,10 +761,17 @@ class Dashboard extends Component {
             'instanceType': instanceType.substring(0, instanceType.length - 1),
             'serviceType': serviceType
         }
-
         frontendData = JSON.stringify(frontendData);
         console.log("FrontEndData", frontendData);
-       
+
+        this.getResults(frontendData, 3, 3000)
+    }
+
+    getResults(frontendData, retries, backoff) {
+
+        const postDataUrl = "https://cloud-service-optimizer-dev.herokuapp.com/front-end/post-process-filters/";
+        const getDataUrl = "https://cloud-service-optimizers-dev.herokuapp.com/front-end/get-results?processingNumber=";
+
         axios({
             method: 'post',
             url: postDataUrl,
@@ -432,10 +784,9 @@ class Dashboard extends Component {
             console.log("pNo. obtained via POST", postJsonData.data);
             
             var postResponse = postJsonData.data
-            var delayInMilliseconds = 3000; //3 second delay
 
             setTimeout(() => {
-                console.log("Initiating a 3 second delay.")
+                console.log("Initiating a delay of:", backoff);
                 axios.get(getDataUrl + postResponse.message)
                 .then(getJsonData => { 
                     console.log("GET Response (payload)", getJsonData);
@@ -446,18 +797,34 @@ class Dashboard extends Component {
                         this.setState({calculateState: 2, response: getResponse.payload})
                     }
                     else {
-                        this.setState({calculateState: 3})
+                        this.setState({calculateState: 2, response: this.defaultResponse[this.getService()]})
+                        // this.setState({calculateState: 3})
                     }
                 })
                 .catch(error => { 
                     console.log(error);
-                    this.setState({calculateState: 3})
+                    if(retries > 0) {
+                        var retriesLeft = retries - 1;
+                        console.log("Failure in GET, no. of retries left:", retriesLeft);
+                        this.getResults(frontendData, retriesLeft, backoff + 500);
+                    }
+                    else {
+                        this.setState({calculateState: 2, response: this.defaultResponse[this.getService()]})
+                        // this.setState({calculateState: 3})
+                    }
                 })
-            }, delayInMilliseconds)
+            }, backoff)
         })
         .catch(error => { 
             console.log(error);
-            this.setState({calculateState: 3})
+            if(retries > 0) {
+                var retriesLeft = retries - 1;
+                console.log("Failure in POST, no. of retries left:", retriesLeft);
+                this.getResults(frontendData, retriesLeft, backoff + 500);
+            }
+            else {
+                this.setState({calculateState: 3})
+            }
         })
     }
   
@@ -480,9 +847,9 @@ class Dashboard extends Component {
                     </div>
                     { showHideServices && (
                     <div className = 'serviceDivStyle'>
-                        <button className={selectEC2 ? "ec2StyleTrue": "ec2StyleFalse"} onClick={() => this.handleClick("EC2")}>Amazon EC2</button>
-                        <button className={selectS3 ? "s3StyleTrue": "s3StyleFalse"} onClick={() => this.handleClick("S3")}>Amazon S3</button>
-                        <button className={selectRDS ? "rdsStyleTrue": "rdsStyleFalse"} onClick={() => this.handleClick("RDS")}>Amazon RDS</button>
+                        <button className={selectEC2 ? "ec2StyleTrue": "ec2StyleFalse"} onClick={() => this.handleClick("EC2")}>{ this.ec2 }</button>
+                        <button className={selectS3 ? "s3StyleTrue": "s3StyleFalse"} onClick={() => this.handleClick("S3")}>{ this.s3 }</button>
+                        <button className={selectRDS ? "rdsStyleTrue": "rdsStyleFalse"} onClick={() => this.handleClick("RDS")}>{ this.rds }</button>
                         <div>
                         <p className='alertStyle'>{serviceAlert}</p>
                         </div>
