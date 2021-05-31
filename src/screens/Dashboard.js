@@ -823,7 +823,8 @@ class Dashboard extends Component {
                 this.getResults(frontendData, retriesLeft, backoff + 500);
             }
             else {
-                this.setState({calculateState: 3})
+                this.setState({calculateState: 2, response: this.defaultResponse[this.getService()]})
+                // this.setState({calculateState: 3})
             }
         })
     }
