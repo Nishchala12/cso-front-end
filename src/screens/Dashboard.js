@@ -391,7 +391,6 @@ class Dashboard extends Component {
                     return;
                 }
             }
-            console.log("Filter count", s3FilterCount)
             if(this.state.selectS3===true)
             {
                 if(s3FilterCount !== 5)

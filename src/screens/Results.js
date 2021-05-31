@@ -5,29 +5,12 @@ import '../styles/Results.css'
 
 class Results extends Component {
 
-    // textUtil(text, spacing, alignment) {
-    //     var components = [];
-    //     var renderText = text.split("~");
-    //     for(var i = 0; i < renderText.length; i++)
-    //         components.push(
-    //             <p className = 'filterTextStyle' style = {{ marginTop: spacing, marginBottom: spacing, textAlign: alignment }}>{ renderText[i] }</p>
-    //         );
-    //     return components;
-    // }
-
-    textUtil() {
+    textUtil(filterCompare) {
         var components = [];
-        var jsonData = {
-            't2.micro > t2.large': 2.3, 
-            't2.micro > t2.xlarge': 4.6,
-            't2.small > t2.medium': 5.66,
-            't2.medium > t2.nano': 4.57,
-            't2.micro > t2.small': 3.93
-        }
         components.push(
             <p className = 'filterHeadingStyle'>Observations</p>
         );
-        Object.entries(jsonData).forEach(item => {
+        Object.entries(filterCompare).forEach(item => {
             var instanceName = item[0];
             var instanceValue = item[1];
             components.push(
@@ -40,24 +23,12 @@ class Results extends Component {
         return components;
     }
 
-    s3TextUtil() {
+    s3TextUtil(payload) {
         var components = [];
-        var s3JsonData = {
-            selectedValues: {
-                'Consistency': 56.768,
-                'Elapsed Time': 70.62,
-                'Connection Time': 90.33,
-                'Latency': 55.55,
-                'Throughput': 11.11951
-            },
-            predictedValue: {
-                'Error Rate': 70.95
-            }
-        };
         components.push(
             <p className = 's3FilterHeadingStyle'>Selected Filters</p>
         );
-        Object.entries(s3JsonData.selectedValues).forEach(item => {
+        Object.entries(payload.selectedValues).forEach(item => {
             var filterName = item[0];
             var filterValue = item[1];
             components.push(
@@ -70,7 +41,7 @@ class Results extends Component {
         components.push(
             <p className = 's3FilterHeadingStyle'>Predicted Filter</p>
         );
-        Object.entries(s3JsonData.predictedValue).forEach(item => {
+        Object.entries(payload.predictedValue).forEach(item => {
             var filterName = item[0];
             var filterValue = item[1];
             components.push(
@@ -139,7 +110,7 @@ class Results extends Component {
         return data;
     }
 
-    createCharts(data, filterText, displayName) {
+    createCharts(data, filterCompare, displayName) {
         return(
             <div>
                 <div className = 'doughnutGraphStyle'>
@@ -178,7 +149,7 @@ class Results extends Component {
                         }}
                     />
                 </div>
-                { this.textUtil() }
+                { this.textUtil(filterCompare) }
                 <br/>
                 <hr className = 'hrStyle'/>
             </div>
@@ -191,11 +162,11 @@ class Results extends Component {
             if(item[0] !== "overall") {
                 var collectiveData = item[1];
                 var filterData = collectiveData.data;
-                var filterText = collectiveData.filterText;
+                var filterCompare = collectiveData.filterCompare;
                 var displayName = collectiveData.displayName;
 
                 var graphData = this.createData(displayName, filterData);
-                var graphs = this.createCharts(graphData, filterText, displayName);
+                var graphs = this.createCharts(graphData, filterCompare, displayName);
                 components.push(graphs);
             }
         })
@@ -206,11 +177,11 @@ class Results extends Component {
     renderOverall(data) {
         var collectiveData = data.overall;
         var filterData = collectiveData.data;
-        var filterText = collectiveData.filterText;
+        var filterCompare = collectiveData.filterCompare;
         var displayName = collectiveData.displayName;
 
         var graphData = this.createData(displayName, filterData);
-        var graph = this.createCharts(graphData, filterText, displayName);
+        var graph = this.createCharts(graphData, filterCompare, displayName);
 
         return graph;
     }
@@ -227,7 +198,7 @@ class Results extends Component {
                     </div>
                     <Link className = 'linkReturnStyle' to = "/dashboard">Return to Dashboard</Link>
                     <div className = 'graphDivStyleCharts'>
-                        { this.s3TextUtil() }
+                        { this.s3TextUtil(data) }
                         <p className = 's3FilterHeadingStyle'>About S3</p>
                         <div className = 'aboutS3DivStyle'>
 
