@@ -22,7 +22,7 @@
     color: #696969;
     font-family: 'Arial Narrow Bold';
     font-weight: bold;
-    font-size: 150%;
+    font-size: 180%;
     text-align: center;
 }
 
@@ -30,7 +30,7 @@
     color: #696969;
     font-family: 'Arial Narrow Bold';
     font-weight: bold;
-    font-size: 120%;
+    font-size: 150%;
     text-align: center;
 }
 
@@ -38,7 +38,7 @@
     color: #696969;
     font-family: 'Arial Narrow Bold';
     font-weight: bold;
-    font-size: 100%;
+    font-size: 130%;
     text-align: center;
     margin-left: 7%;
     margin-right: 7%;
@@ -50,7 +50,7 @@
     color: #696969;
     font-family: 'Arial Narrow Bold';
     font-weight: bold;
-    font-size: 200%;
+    font-size: 230%;
     text-align: center;
 }
 
@@ -88,7 +88,7 @@
     background-color: #fdfdfd;
     border-radius: 50px;
     text-align: left;
-    font-size: 15;
+    font-size: 130%;
     text-decoration: none;
     font-weight: bold;
     margin: 5%;
@@ -117,7 +117,7 @@ a:hover {
     color: #696969;
     font-family: 'Arial Narrow Bold';
     font-weight: bold;
-    font-size: 140%;
+    font-size: 170%;
     margin-top: 2%;
     margin-bottom: 2%;
 }
@@ -126,7 +126,7 @@ a:hover {
     color: #696969;
     font-family: 'Arial Narrow Bold';
     font-weight: bold;
-    font-size: 120%;
+    font-size: 150%;
     margin-top: 2%;
     margin-bottom: 2%;
 }
@@ -141,7 +141,7 @@ a:hover {
     padding-left: 2%;
     font-family: 'Arial Narrow Bold';
     font-weight: bold;
-    font-size: 100%;
+    font-size: 130%;
     margin-bottom: 0.7%;
     width: 11%;
     text-align: center;
@@ -157,7 +157,7 @@ a:hover {
     padding-left: 2%;
     font-family: 'Arial Narrow Bold';
     font-weight: bold;
-    font-size: 100%;
+    font-size: 130%;
     margin-bottom: 0.7%;
     justify-content: flex;
     text-align: center;
@@ -174,7 +174,7 @@ a:hover {
     padding-left: 2%;
     font-family: 'Arial Narrow Bold';
     font-weight: bold;
-    font-size: 100%;
+    font-size: 130%;
     margin-bottom: 0.7%;
     width: 11%;
     text-align: center;
@@ -190,7 +190,7 @@ a:hover {
     padding-left: 2%;
     font-family: 'Arial Narrow Bold';
     font-weight: bold;
-    font-size: 100%;
+    font-size: 130%;
     margin-bottom: 0.7%;
     text-align: center;
     width: 7%;
@@ -210,7 +210,7 @@ a:hover {
     color: #696969;
     font-family: 'Arial Narrow Bold';
     font-weight: bold;
-    font-size: 100%;
+    font-size: 130%;
     margin-left: 2%;
     margin-right: 2%;
     margin-top: 2%;
@@ -228,7 +228,7 @@ a:hover {
     padding-left: 2%;
     font-family: 'Arial Narrow Bold';
     font-weight: bold;
-    font-size: 100%;
+    font-size: 130%;
     margin-bottom: 0.7%;
     width: 16%;
     text-align: center;
@@ -244,7 +244,7 @@ a:hover {
     padding-left: 2%;
     font-family: 'Arial Narrow Bold';
     font-weight: bold;
-    font-size: 100%;
+    font-size: 130%;
     margin-bottom: 0.7%; 
     text-align: center;
     width: 7%;

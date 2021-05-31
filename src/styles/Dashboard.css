@@ -594,7 +594,7 @@
     font-weight: bold;
     font-size: 130%;
     color: #FDFDFD;
-    margin-top: 5%;
+    margin-top: 2%;
 }
 
 .t2XLargeStyleFalse {
@@ -610,7 +610,7 @@
     font-weight: bold;
     font-size: 130%;
     color: #FDFDFD;
-    margin-top: 5%;
+    margin-top: 2%;
 }
 
 .calculateDivStyle {
@@ -669,12 +669,13 @@
 
 .priorityTextStyle {
     background-color: #D3D3D3;
-    padding-top: 7px;
-    padding-bottom: 7px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     border-width: 0px;
     border-radius: 20px;
     width: 10%;
     font-family: 'Arial Narrow Bold';
     font-weight: bold;
     text-align: center;
+    font-size: 100%;
 }
