@@ -18,10 +18,6 @@ class Routes extends Component {
                     <Route path = "/results" component = {Results} />
                 </Switch>
             </Router>
-            // <Switch>
-            //     <Route path="/" exact component={Home} />
-            //     <Route component={Home} />
-            // </Switch>
         );
     }
 }
