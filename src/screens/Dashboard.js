@@ -769,8 +769,8 @@ class Dashboard extends Component {
 
     getResults(frontendData, retriesPost, retriesGet,  backoff) {
 
-        const postDataUrl = "https://cloud-service-optimizer-dev.herokuapp.com/front-end/post-process-filters/";
-        const getDataUrl = "https://cloud-service-optimizer-dev.herokuapp.com/front-end/get-results?processingNumber=";
+        const postDataUrl = "https://cloud-service-optimizer-back.herokuapp.com/front-end/post-process-filters/";
+        const getDataUrl = "https://cloud-service-optimizer-back.herokuapp.com/front-end/get-results?processingNumber=";
 
         axios({
             method: 'post',
